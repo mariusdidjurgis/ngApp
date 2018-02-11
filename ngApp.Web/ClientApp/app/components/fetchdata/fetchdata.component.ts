@@ -11,7 +11,6 @@ export class FetchDataComponent {
     constructor(http: Http, @Inject('BASE_URL') baseUrl: string) {
         http.get(baseUrl + 'api/SampleData/WeatherForecasts').subscribe(result => {
             this.forecasts = result.json() as WeatherForecast[];
-            console.log('aa');
         }, error => console.error(error));
     }
 }
