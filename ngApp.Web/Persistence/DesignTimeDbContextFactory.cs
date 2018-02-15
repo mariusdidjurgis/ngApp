@@ -14,7 +14,10 @@ namespace ngApp.Web.Persistence
                 .AddJsonFile("appsettings.json")
                 .Build();
             var builder = new DbContextOptionsBuilder<NgAppDbContext>();
-            var connectionString = configuration.GetConnectionString("DefaultConnection");
+            
+            var connectionString = configuration["ConnectionString:Default"];
+            var connectionString_1 = configuration.GetConnectionString("Default");
+
             builder.UseSqlServer(connectionString);
             return new NgAppDbContext(builder.Options);
         }
