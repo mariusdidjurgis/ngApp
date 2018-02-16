@@ -7,5 +7,7 @@ namespace ngApp.Web.Persistence
         public NgAppDbContext(DbContextOptions<NgAppDbContext> options): base(options){
 
         }
+
+        public DbSet<Make> Make { get; set; }
     }
 }
