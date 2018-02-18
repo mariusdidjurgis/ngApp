@@ -14,15 +14,32 @@ export class MakeComponent implements OnInit {
   makes: Make[] = [];
   constructor(private apiService: ApiService, private http: Http) { 
 
-    new Make(1, 'LTL');
   }
 
   ngOnInit() {
     console.log('ngoninit ', this);
+
     this.apiService.getList('Makes').subscribe(response => {
         this.makes = response;
     })
+  }
 
+  callWithHeaders(){
+    let headers = new Headers();
+    this.createAuthorizationHeader(headers);
+
+    //this.http.get('api/Makes/Test', { headers: headers })
+    //  .map(response => { 
+    //    var result = response.json();
+    //    console.log(' response ', response, ' result ', result);  
+    //    return result;
+    //   }).subscribe(function(item){ 
+    //     console.log('item ', item); 
+    //   });
+     
+  }
+  createAuthorizationHeader(headers: Headers) {
+    headers.append('content-type', 'application/json, text/plain, */*'); 
   }
 
 }

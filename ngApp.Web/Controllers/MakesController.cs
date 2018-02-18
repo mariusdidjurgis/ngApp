@@ -9,7 +9,7 @@ using ngApp.Web.ViewModels;
 
 namespace ngApp.Web.Controllers
 {
-    //[Route("api/[controller]/[action]")]
+    [Route("api/[controller]/[action]")]
     public class MakesController : Controller
     {
         private readonly NgAppDbContext context;
@@ -21,7 +21,6 @@ namespace ngApp.Web.Controllers
             this.mapper = mapper;
         }
 
-        [HttpGet("api/Makes/GetList")]
         public IEnumerable<MakeViewModel> GetList()
         {
             var list = context.Make.Include(m => m.Models).ToList();

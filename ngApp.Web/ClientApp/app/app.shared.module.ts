@@ -11,6 +11,7 @@ import { HomeComponent } from './components/home/home.component';
 import { FetchDataComponent } from './components/fetchdata/fetchdata.component';
 import { CounterComponent } from './components/counter/counter.component';
 import { MakeComponent } from './components/vehicle/make/make.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
     declarations: [
@@ -24,6 +25,7 @@ import { MakeComponent } from './components/vehicle/make/make.component';
     imports: [
         CommonModule,
         HttpModule,
+        BrowserAnimationsModule,
         FormsModule,
         RouterModule.forRoot([
             { path: '', redirectTo: 'home', pathMatch: 'full' },
