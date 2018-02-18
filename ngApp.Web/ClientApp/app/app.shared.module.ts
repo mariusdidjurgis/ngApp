@@ -1,3 +1,4 @@
+import { ApiService } from './components/shared/api.service';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -31,7 +32,10 @@ import { MakeComponent } from './components/vehicle/make/make.component';
             { path: 'fetch-data', component: FetchDataComponent },
             { path: 'makes', component: MakeComponent },
             { path: '**', redirectTo: 'home' }
-        ])
+        ]),        
+    ],
+    providers: [
+        ApiService
     ]
 })
 export class AppModuleShared {

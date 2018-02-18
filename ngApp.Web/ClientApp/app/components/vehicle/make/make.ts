@@ -1,6 +1,5 @@
-export class Make{
-    
-    constructor(public Id: number , public Name: string){
-        
+export class Make {
+    constructor(private Id: number, private name: string){
+            
     }
 }

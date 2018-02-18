@@ -1,3 +1,20 @@
-<p>
-  make works!
-</p>
+<h1>
+ {{ title }}
+</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">Models</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of makes">
+      <th scope="row">{{ item.id }}</th>
+      <td>{{ item.name }}</td>
+      <td><span *ngFor="let model of item.models"><a href="" >{{ model.name }}</a> ; </span></td>
+    </tr>
+  </tbody>
+</table>

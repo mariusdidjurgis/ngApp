@@ -1,4 +1,7 @@
+import { ApiService } from './../../shared/api.service';
 import { Component, OnInit } from '@angular/core';
+import { Http } from '@angular/http';
+import { Make } from './Make';
 
 @Component({
   selector: 'app-make',
@@ -7,9 +10,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MakeComponent implements OnInit {
 
-  constructor() { }
+  title:string = "Make list";
+  makes: Make[] = [];
+  constructor(private apiService: ApiService, private http: Http) { 
+
+    new Make(1, 'LTL');
+  }
 
   ngOnInit() {
+    console.log('ngoninit ', this);
+    this.apiService.getList('Makes').subscribe(response => {
+        this.makes = response;
+    })
+
   }
 
 }
