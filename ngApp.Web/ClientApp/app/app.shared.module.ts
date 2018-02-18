@@ -29,6 +29,7 @@ import { MakeComponent } from './components/vehicle/make/make.component';
             { path: 'home', component: HomeComponent },
             { path: 'counter', component: CounterComponent },
             { path: 'fetch-data', component: FetchDataComponent },
+            { path: 'makes', component: MakeComponent },
             { path: '**', redirectTo: 'home' }
         ])
     ]
