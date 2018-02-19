@@ -12,6 +12,7 @@ import { FetchDataComponent } from './components/fetchdata/fetchdata.component';
 import { CounterComponent } from './components/counter/counter.component';
 import { MakeComponent } from './components/vehicle/make/make.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CalendarModule } from 'primeng/calendar';
 
 @NgModule({
     declarations: [
@@ -26,6 +27,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
         CommonModule,
         HttpModule,
         BrowserAnimationsModule,
+        CalendarModule,
         FormsModule,
         RouterModule.forRoot([
             { path: '', redirectTo: 'home', pathMatch: 'full' },

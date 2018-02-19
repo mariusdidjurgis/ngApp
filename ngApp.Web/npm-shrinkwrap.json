@@ -3858,6 +3858,11 @@
       "resolved": "https://registry.npmjs.org/preserve/-/preserve-0.2.0.tgz",
       "dev": true
     },
+    "primeng": {
+      "version": "5.2.0",
+      "from": "primeng@latest",
+      "resolved": "https://registry.npmjs.org/primeng/-/primeng-5.2.0.tgz"
+    },
     "private": {
       "version": "0.1.7",
       "from": "private@https://registry.npmjs.org/private/-/private-0.1.7.tgz",
