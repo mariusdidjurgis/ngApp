@@ -1,0 +1,11 @@
+<h2>
+  {{ title }}
+</h2>
+<form name='makeForm'>
+  <div class="form-group">
+    <label for="MakeName">Name</label>
+    <input type="text" class="form-control" id="MakeName" name="Name" [(ngModel)]="model.Name" placeholder="Enter name">
+  </div>
+
+  <button class="btn btn-primary" (click)="save()">Save</button>
+</form>

@@ -13,6 +13,7 @@ import { CounterComponent } from './components/counter/counter.component';
 import { MakeComponent } from './components/vehicle/make/make.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CalendarModule } from 'primeng/calendar';
+import { MakeEditComponent } from './components/vehicle/make/make-edit/make-edit.component';
 
 @NgModule({
     declarations: [
@@ -21,7 +22,8 @@ import { CalendarModule } from 'primeng/calendar';
         CounterComponent,
         FetchDataComponent,
         HomeComponent,
-        MakeComponent
+        MakeComponent,
+        MakeEditComponent
     ],
     imports: [
         CommonModule,
@@ -35,6 +37,7 @@ import { CalendarModule } from 'primeng/calendar';
             { path: 'counter', component: CounterComponent },
             { path: 'fetch-data', component: FetchDataComponent },
             { path: 'makes', component: MakeComponent },
+            { path: 'makes/:id', component: MakeEditComponent },
             { path: '**', redirectTo: 'home' }
         ]),        
     ],
