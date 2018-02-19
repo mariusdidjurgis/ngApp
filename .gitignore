@@ -25,8 +25,6 @@ bin/
 Bin/
 obj/
 Obj/
-wwwroot/dist/
-ClientApp/dist/
 
 # Visual Studio 2015 cache/options directory
 .vs/
@@ -237,3 +235,5 @@ _Pvt_Extensions
 
 # FAKE - F# Make
 .fake/
+ngApp.Web/wwwroot/dist/
+ngApp.Web/ClientApp/dist/
