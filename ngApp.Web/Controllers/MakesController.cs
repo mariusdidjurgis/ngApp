@@ -24,9 +24,9 @@ namespace ngApp.Web.Controllers
 
         public IEnumerable<MakeViewModel> GetList()
         {
-            //var list = context.Make.Include(m => m.Models).ToList();
+            var list = context.Make.Include(m => m.Models).ToList();
             
-            return null; //mapper.Map<List<Make>, List<MakeViewModel>>(list);
+            return mapper.Map<List<Make>, List<MakeViewModel>>(list);
         }
     }
 }

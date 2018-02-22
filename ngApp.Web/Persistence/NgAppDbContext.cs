@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using ngApp.Web.Models.Vechicles;
 
 namespace ngApp.Web.Persistence
 {
@@ -8,5 +9,7 @@ namespace ngApp.Web.Persistence
 
         }
 
+        public DbSet<Make> Make { get; set; }
+        public DbSet<Vehicle> Vehicle{ get; set; }
     }
 }

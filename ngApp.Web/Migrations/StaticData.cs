@@ -56,5 +56,9 @@ namespace ngApp.Web.Migrations
 
             return fullSql;
         }
+
+        public static string FeaturesSql(){
+            return @"INSERT INTO features (name) VALUES ('air conditioning'), ('anti-lock brakes'), ('electronic stability control '), ('Autonomus driving'), ('leather seats');";
+        }
     }
 }
