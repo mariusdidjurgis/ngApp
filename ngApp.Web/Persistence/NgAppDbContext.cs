@@ -8,6 +8,5 @@ namespace ngApp.Web.Persistence
 
         }
 
-        public DbSet<Make> Make { get; set; }
     }
 }

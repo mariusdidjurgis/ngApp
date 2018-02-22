@@ -9,9 +9,10 @@ using System;
 namespace ngApp.Web.Migrations
 {
     [DbContext(typeof(NgAppDbContext))]
-    partial class NgAppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20180222212209_clear")]
+    partial class clear
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

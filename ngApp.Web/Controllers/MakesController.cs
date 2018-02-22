@@ -4,6 +4,7 @@ using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Query;
+using ngApp.Web.Models.Vechicles;
 using ngApp.Web.Persistence;
 using ngApp.Web.ViewModels;
 
@@ -23,9 +24,9 @@ namespace ngApp.Web.Controllers
 
         public IEnumerable<MakeViewModel> GetList()
         {
-            var list = context.Make.Include(m => m.Models).ToList();
+            //var list = context.Make.Include(m => m.Models).ToList();
             
-            return mapper.Map<List<Make>, List<MakeViewModel>>(list);
+            return null; //mapper.Map<List<Make>, List<MakeViewModel>>(list);
         }
     }
 }

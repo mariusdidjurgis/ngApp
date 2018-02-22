@@ -1,4 +1,5 @@
 using AutoMapper;
+using ngApp.Web.Models.Vechicles;
 using ngApp.Web.ViewModels;
 
 namespace ngApp.Web.Mapping
