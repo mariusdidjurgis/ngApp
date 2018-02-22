@@ -12,6 +12,8 @@ import { FetchDataComponent } from './components/fetchdata/fetchdata.component';
 import { CounterComponent } from './components/counter/counter.component';
 import { MakeComponent } from './components/vehicle/make/make.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CalendarModule } from 'primeng/calendar';
+import { MakeEditComponent } from './components/vehicle/make/make-edit/make-edit.component';
 
 @NgModule({
     declarations: [
@@ -20,12 +22,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
         CounterComponent,
         FetchDataComponent,
         HomeComponent,
-        MakeComponent
+        MakeComponent,
+        MakeEditComponent
     ],
     imports: [
         CommonModule,
         HttpModule,
         BrowserAnimationsModule,
+        CalendarModule,
         FormsModule,
         RouterModule.forRoot([
             { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -33,6 +37,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
             { path: 'counter', component: CounterComponent },
             { path: 'fetch-data', component: FetchDataComponent },
             { path: 'makes', component: MakeComponent },
+            { path: 'makes/:id', component: MakeEditComponent },
             { path: '**', redirectTo: 'home' }
         ]),        
     ],

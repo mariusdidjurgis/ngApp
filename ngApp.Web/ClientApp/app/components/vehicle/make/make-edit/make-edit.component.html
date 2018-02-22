@@ -1,0 +1,45 @@
+<h2>
+  {{ title }}
+</h2>
+<div>
+  {{ diagnostic }}
+</div>
+<div [hidden]="submitted">
+    <form name='makeForm' #makeForm="ngForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label for="MakeName">Name</label>
+          <input type="text" required #mycustomid class="form-control" id="MakeName" name="Name" [(ngModel)]="model.Name" placeholder="Enter name">
+          <br>TODO: remove this: {{mycustomid.className}}
+        </div>
+        <div class="form-group">
+          <label for="DateEstabl">Date</label>
+          <p-calendar name="date" [(ngModel)]="model.Date" dateFormat="yy-mm-dd"></p-calendar>
+        </div>
+        <div class="form-group">
+          <label for="HeadQuatersLocation">HeadQuaters location</label>
+          <input type="text" class="form-control" id="HeadQuatersLocation" name="HeadQuatersLocation" [(ngModel)]="model.HeadQuatersLocation" placeholder="Enter location">
+        </div>
+      
+        <button type="submit" class="btn btn-success" [disabled]="!makeForm.form.valid">Submit</button>
+      </form>
+</div>
+
+
+<div [hidden]="!submitted">
+    <h2>You submitted the following:</h2>
+    <div class="row">
+      <div class="col-xs-3">Name</div>
+      <div class="col-xs-9  pull-left">{{ model.Name }}</div>
+    </div>
+    <div class="row">
+      <div class="col-xs-3">Date</div>
+      <div class="col-xs-9 pull-left">{{ model.Date | date: 'medium'}}</div>
+    </div>
+    <div class="row">
+      <div class="col-xs-3">HeadQuaters Location</div>
+      <div class="col-xs-9 pull-left">{{ model.HeadQuatersLocation }}</div>
+    </div>
+    <br>
+    <button class="btn btn-primary" (click)="submitted=false">Edit</button>
+  </div>
+  

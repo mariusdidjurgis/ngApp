@@ -5,12 +5,15 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class ApiService {
 
-  constructor(private http: Http) { 
-    
-  }
+    constructor(private http: Http) {
+    }
   
-  getList(controller: string){
-    return this.http.get('api/' + controller + '/GetList').map(response => response.json());
-  }
+    getList(controller: string){
+        return this.http.get('api/' + controller + '/GetList').map(response => response.json());
+    }
+
+    post(controller: string, model: object){
+        return this.http.post('api/' + controller + '/Post', model);
+    }
 
 }

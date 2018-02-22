@@ -235,3 +235,5 @@ _Pvt_Extensions
 
 # FAKE - F# Make
 .fake/
+ngApp.Web/wwwroot/dist/
+ngApp.Web/ClientApp/dist/

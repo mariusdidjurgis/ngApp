@@ -28,5 +28,12 @@ namespace ngApp.Web.Controllers
             
             return mapper.Map<List<Make>, List<MakeViewModel>>(list);
         }
+
+        [HttpPost]
+        public IActionResult Post([FromBody]MakeViewModel viewModel){
+            var model = new Make();
+            
+            return Ok();
+        }
     }
 }
