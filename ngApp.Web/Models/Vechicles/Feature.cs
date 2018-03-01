@@ -1,13 +1,12 @@
+using ngApp.Web.Models.Base;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ngApp.Web.Models.Vechicles
 {
-    [Table("features")]
-    public class Feature
+
+    public class Feature: EntityCode
     {
-        public long Id { get; set; }
-        [Required]
-        public string Name { get; set; }
+
     }
 }

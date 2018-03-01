@@ -9,7 +9,7 @@ namespace ngApp.Web.Mapping
         public MappingProfile(){
             CreateMap<Make, MakeViewModel>();
             CreateMap<Model, ModelViewModel>();
-            
+            CreateMap<Feature, FeatureViewModel>();
         }
 
     }

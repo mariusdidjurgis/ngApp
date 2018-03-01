@@ -11,6 +11,7 @@ import { HomeComponent } from './components/home/home.component';
 import { FetchDataComponent } from './components/fetchdata/fetchdata.component';
 import { CounterComponent } from './components/counter/counter.component';
 import { MakeComponent } from './components/vehicle/make/make.component';
+import { FeatureComponent } from './components/vehicle/feature/feature.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CalendarModule } from 'primeng/calendar';
 import { MakeEditComponent } from './components/vehicle/make/make-edit/make-edit.component';
@@ -23,6 +24,7 @@ import { MakeEditComponent } from './components/vehicle/make/make-edit/make-edit
         FetchDataComponent,
         HomeComponent,
         MakeComponent,
+        FeatureComponent,
         MakeEditComponent
     ],
     imports: [
@@ -38,6 +40,7 @@ import { MakeEditComponent } from './components/vehicle/make/make-edit/make-edit
             { path: 'fetch-data', component: FetchDataComponent },
             { path: 'makes', component: MakeComponent },
             { path: 'makes/:id', component: MakeEditComponent },
+            { path: 'features', component: FeatureComponent },
             { path: '**', redirectTo: 'home' }
         ]),        
     ],
