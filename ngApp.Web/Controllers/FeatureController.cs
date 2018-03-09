@@ -13,25 +13,29 @@ namespace ngApp.Web.Controllers
     [Route("api/[controller]/[action]")]
     public class FeatureController : Controller
     {
-        private readonly NgAppDbContext context;
+        private readonly IUnitOfWork unitOfWork;
         private readonly IMapper mapper;
 
-        public FeatureController(NgAppDbContext context, IMapper mapper)
+        public FeatureController(IUnitOfWork _unitOfWork, IMapper mapper)
         {
-            this.context = context;
             this.mapper = mapper;
+            unitOfWork = _unitOfWork;
         }
 
         public IEnumerable<FeatureViewModel> GetList()
-        {
-            return mapper.Map<List<Feature>, List<FeatureViewModel>>(context.Feature.ToList());
+        {            
+            return mapper.Map<List<Feature>, List<FeatureViewModel>>(unitOfWork.Features.GetAll().ToList());
         }
 
         [HttpPost]
         public IActionResult Post([FromBody]FeatureViewModel viewModel){
-            var model = new Feature();
-            
+            //var model = mapper.Map<FeatureViewModel, Feature>(viewModel);
+            //unitOfWork.Features.Add(model);
+            //unitOfWork.Complete();
+
             return Ok();
         }
+
+
     }
 }

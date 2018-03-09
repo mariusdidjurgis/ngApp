@@ -29,6 +29,7 @@ namespace ngApp.Web
             services.AddDbContext<NgAppDbContext>(options => options.UseSqlServer(Configuration["ConnectionString:Default"]));
             //services.AddDbContext<NgAppDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("Default")));
             services.AddMvc();
+            services.AddTransient<IUnitOfWork, UnitOfWork>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
