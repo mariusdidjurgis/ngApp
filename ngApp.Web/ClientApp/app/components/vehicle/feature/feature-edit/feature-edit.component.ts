@@ -13,8 +13,7 @@ export class FeatureEditComponent implements OnInit {
     
     model: Feature = new Feature(0, "", "");
     constructor(private api: ApiService, private activeRoute: ActivatedRoute, private router: Router, private http: Http) {
-        //this.router.navigate([crisis.id], { relativeTo: this.route });
-        console.log(this, ' route ', this.router.navigate);
+        console.log(this);
     }
 
     ngOnInit() {
@@ -22,20 +21,12 @@ export class FeatureEditComponent implements OnInit {
     }
 
     onSubmit() {
-        if (this.model.Id > 0) {
-            this.api.Put("Feature", this.model).subscribe(x => {
-                this.GetModel();
-            })
-        } else {
-            this.api.Post("Feature", this.model).subscribe(x => {
-               
-                this.router.navigate(['/features/' + x.json()]);
-                console.log(' after post', x);
-            })
-        }        
+        this.api.Save("Feature", this.model, 'features');
+        if (this.model.Id > 0)
+            this.GetModel();
     }
 
-    private GetModel() {
+    GetModel() {
         this.activeRoute.params.subscribe(params => {
             this.api.GetById("Feature", +params['id']).subscribe(response => {
                 this.model = response.json();
