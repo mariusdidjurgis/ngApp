@@ -17,7 +17,9 @@ namespace ngApp.Web.EntityConfigurations
             entity.ToTable("features");
             entity.HasKey(c => c.Id);
             entity.Property(c => c.Name).IsRequired();
-            entity.Ignore(x => x.Code);
+            entity.Property(c => c.Code);
+            entity.Ignore(x => x.Price);
+            entity.Ignore(x => x.Active);
         }
     }
 }

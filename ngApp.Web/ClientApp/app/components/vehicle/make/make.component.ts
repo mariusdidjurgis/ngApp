@@ -19,7 +19,7 @@ export class MakeComponent implements OnInit {
   ngOnInit() {
     console.log('ngoninit ', this);
 
-    this.apiService.getList('Makes').subscribe(response => {
+    this.apiService.GetList('Makes').subscribe(response => {
         this.makes = response;
     })
   }

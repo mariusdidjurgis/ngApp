@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.SpaServices.Webpack;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Newtonsoft.Json.Serialization;
 using ngApp.Web.Persistence;
 
 namespace ngApp.Web
@@ -28,7 +29,7 @@ namespace ngApp.Web
             services.AddAutoMapper();
             services.AddDbContext<NgAppDbContext>(options => options.UseSqlServer(Configuration["ConnectionString:Default"]));
             //services.AddDbContext<NgAppDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("Default")));
-            services.AddMvc();
+            services.AddMvc().AddJsonOptions(options => options.SerializerSettings.ContractResolver = new DefaultContractResolver()); ;
             services.AddTransient<IUnitOfWork, UnitOfWork>();
         }
 

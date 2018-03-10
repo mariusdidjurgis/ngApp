@@ -10,7 +10,7 @@ using ngApp.Web.ViewModels;
 
 namespace ngApp.Web.Controllers
 {
-    [Route("api/[controller]/[action]")]
+    [Route("api/Feature/[action]")]
     public class FeatureController : Controller
     {
         private readonly IUnitOfWork unitOfWork;
@@ -27,15 +27,42 @@ namespace ngApp.Web.Controllers
             return mapper.Map<List<Feature>, List<FeatureViewModel>>(unitOfWork.Features.GetAll().ToList());
         }
 
+
+        [HttpGet]
+        [Route("{Id:long}")]
+        public FeatureViewModel GetById(long Id)
+        {
+            var model = Id > 0 ? unitOfWork.Features.Get(Id) : new Feature();
+
+            return mapper.Map<Feature, FeatureViewModel>(model);
+        }
+
         [HttpPost]
         public IActionResult Post([FromBody]FeatureViewModel viewModel){
-            //var model = mapper.Map<FeatureViewModel, Feature>(viewModel);
-            //unitOfWork.Features.Add(model);
-            //unitOfWork.Complete();
+            var model = mapper.Map<FeatureViewModel, Feature>(viewModel);
+            unitOfWork.Features.Add(model);
+            unitOfWork.Complete();
+
+            return Ok(model.Id);
+        }
+
+        [HttpPut]
+        public IActionResult Put([FromBody]FeatureViewModel viewModel)
+        {
+            var model = mapper.Map<FeatureViewModel, Feature>(viewModel);
+            unitOfWork.Features.Update(model);
+            unitOfWork.Complete();
+
+            return Ok(model.Id);
+        }
+
+        [HttpDelete("{Id:long}")]
+        public IActionResult Delete(long Id)
+        {
+            unitOfWork.Features.Remove(unitOfWork.Features.Get(Id));
+            unitOfWork.Complete();
 
             return Ok();
         }
-
-
     }
 }

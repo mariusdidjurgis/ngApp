@@ -23,7 +23,7 @@ export class MakeEditComponent implements OnInit {
 
     onSubmit() {
         this.submitted = true;
-        this.apiService.post('Makes', this.model).subscribe(response => {
+        this.apiService.Post('Makes', this.model).subscribe(response => {
             //this.model = new Make(0, "new Name", new Date(), "Vilnius");
         })
     }

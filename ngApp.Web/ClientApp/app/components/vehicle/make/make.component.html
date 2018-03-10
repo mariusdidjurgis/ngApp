@@ -13,9 +13,9 @@
   </thead>
   <tbody>
     <tr *ngFor="let item of makes">
-      <th scope="row">{{ item.id }}</th>
-      <td>{{ item.name }}</td>
-      <td><span *ngFor="let model of item.models"><a href="" >{{ model.name }}</a> ; </span></td>
+      <th scope="row">{{ item.Id }}</th>
+      <td>{{ item.Name }}</td>
+      <td><span *ngFor="let model of item.models"><a href="" >{{ model.Name }}</a> ; </span></td>
     </tr>
   </tbody>
 </table>

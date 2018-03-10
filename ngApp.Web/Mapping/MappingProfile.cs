@@ -10,6 +10,7 @@ namespace ngApp.Web.Mapping
             CreateMap<Make, MakeViewModel>();
             CreateMap<Model, ModelViewModel>();
             CreateMap<Feature, FeatureViewModel>();
+            CreateMap<FeatureViewModel, Feature>().ForMember(x => x.Active, opt => opt.Ignore()).ForMember(x => x.Price, opt => opt.Ignore());
         }
 
     }

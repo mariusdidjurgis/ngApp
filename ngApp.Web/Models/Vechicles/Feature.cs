@@ -7,6 +7,7 @@ namespace ngApp.Web.Models.Vechicles
 
     public class Feature: EntityWithCode
     {
-
+        public decimal Price { get; set; }
+        public bool Active { get; set; }
     }
 }

@@ -1,5 +1,5 @@
 export class Feature {
-    constructor(private Id: number, private Name: string, private Code: string) {
+    constructor(public Id: number, public Name: string, public Code: string) {
 
     }
 }

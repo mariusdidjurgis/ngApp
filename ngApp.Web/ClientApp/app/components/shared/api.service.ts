@@ -8,12 +8,23 @@ export class ApiService {
     constructor(private http: Http) {
     }
   
-    getList(controller: string){
+    GetList(controller: string){
         return this.http.get('api/' + controller + '/GetList').map(response => response.json());
     }
 
-    post(controller: string, model: object){
+    GetById(controller: string, id: number) {
+        return this.http.get('api/' + controller + '/GetById/' + id);
+    }
+
+    Post(controller: string, model: object){
         return this.http.post('api/' + controller + '/Post', model);
     }
 
+    Put(controller: string, model: object) {
+        return this.http.put('api/' + controller + '/Put', model);
+    }
+
+    Delete(controller: string, Id: number) {
+        return this.http.delete('api/' + controller + '/Delete/' + Id);
+    }
 }

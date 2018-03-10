@@ -16,7 +16,7 @@ namespace ngApp.Web.Persistence.Repositories
             Context = context;
         }
 
-        public TEntity Get(int id)
+        public TEntity Get(long id)
         {
             // Here we are working with a DbContext, not PlutoContext. So we don't have DbSets 
             // such as Courses or Authors, and we need to use the generic Set() method to access them.
@@ -52,6 +52,11 @@ namespace ngApp.Web.Persistence.Repositories
         public void Add(TEntity entity)
         {
             Context.Set<TEntity>().Add(entity);
+        }
+
+        public void Update(TEntity entity)
+        {
+            Context.Set<TEntity>().Update(entity);
         }
 
         public void AddRange(IEnumerable<TEntity> entities)

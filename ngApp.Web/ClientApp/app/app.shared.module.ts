@@ -15,6 +15,7 @@ import { FeatureComponent } from './components/vehicle/feature/feature.component
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CalendarModule } from 'primeng/calendar';
 import { MakeEditComponent } from './components/vehicle/make/make-edit/make-edit.component';
+import { FeatureEditComponent } from './components/vehicle/feature/feature-edit/feature-edit.component';
 
 @NgModule({
     declarations: [
@@ -25,7 +26,8 @@ import { MakeEditComponent } from './components/vehicle/make/make-edit/make-edit
         HomeComponent,
         MakeComponent,
         FeatureComponent,
-        MakeEditComponent
+        MakeEditComponent,
+        FeatureEditComponent
     ],
     imports: [
         CommonModule,
@@ -41,6 +43,7 @@ import { MakeEditComponent } from './components/vehicle/make/make-edit/make-edit
             { path: 'makes', component: MakeComponent },
             { path: 'makes/:id', component: MakeEditComponent },
             { path: 'features', component: FeatureComponent },
+            { path: 'features/:id', component: FeatureEditComponent },
             { path: '**', redirectTo: 'home' }
         ]),        
     ],
