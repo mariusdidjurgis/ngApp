@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace ngApp.Web.Models.Vechicles
 {
 
-    public class Feature: EntityCode
+    public class Feature: EntityWithCode
     {
 
     }

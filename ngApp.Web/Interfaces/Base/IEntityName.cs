@@ -1,11 +1,11 @@
 namespace ngApp.Web.Interfaces.Base
 {
-    public interface IEntityName
+    public interface IEntityWithName
     {
          string Name { get; set; }
     }
 
-    public interface IEntityCode: IEntityName
+    public interface IEntityWithCode : IEntityWithName
     {
         string Code { get; set; }
     }
