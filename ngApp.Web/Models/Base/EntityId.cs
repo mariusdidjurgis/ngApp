@@ -2,7 +2,7 @@ using ngApp.Web.Interfaces.Base;
 
 namespace ngApp.Web.Models.Base
 {
-    public class EntityId : IEntity
+    public class EntityId : IEntityId
     {
         public long Id { get; set; }
 

@@ -11,9 +11,10 @@ using System;
 namespace ngApp.Web.Migrations
 {
     [DbContext(typeof(NgAppDbContext))]
-    partial class NgAppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20180311154616_makeDateAndHeadquaters")]
+    partial class makeDateAndHeadquaters
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

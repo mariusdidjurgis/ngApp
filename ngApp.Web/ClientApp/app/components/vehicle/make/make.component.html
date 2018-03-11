@@ -1,21 +1,33 @@
 <h1>
- {{ title }}
+    {{ title }}
 </h1>
-<a class="btn btn-primary" [routerLink]="['/makes/0']">Create new</a>
+
+<div>
+    <a [routerLink]="[makesUrl, 0]" class="btn btn-primary">Create new</a>
+</div>
 
 <table class="table">
-  <thead>
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">Name</th>
-      <th scope="col">Models</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let item of makes">
-      <th scope="row">{{ item.Id }}</th>
-      <td>{{ item.Name }}</td>
-      <td><span *ngFor="let model of item.models"><a href="" >{{ model.Name }}</a> ; </span></td>
-    </tr>
-  </tbody>
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">HeadQuaters</th>
+            <th scope="col">Established date</th>
+            <th scope="col">Models</th>
+            <th scope="col"><i class="fa fa-folder" aria-hidden="true"></i></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of makes">
+            <th scope="row">{{ item.Id }}</th>
+            <td>{{ item.Name }}</td>
+            <td>{{ item.HeadQuatersLocation }}</td>
+            <td>{{ item.Date | date: 'yyyy-MM-dd'}}; medium format:  {{ item.Date | date: 'medium'}}</td>
+            <td><span *ngFor="let model of item.models"><a href="">{{ model.Name }}</a> ; </span></td>
+            <td>
+                <a [routerLink]="[makesUrl, item.Id]"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                <button class="btn btn-link" (click)="delete(item.Id)"><i class="fa fa-times" aria-hidden="true"></i></button>
+            </td>
+        </tr>
+    </tbody>
 </table>

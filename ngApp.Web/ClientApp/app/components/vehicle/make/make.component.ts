@@ -2,44 +2,46 @@ import { ApiService } from './../../shared/api.service';
 import { Component, OnInit } from '@angular/core';
 import { Http } from '@angular/http';
 import { Make } from './Make';
+import { ControllerEnum } from '../../shared/enums/Controller.enum';
+import { UrlEnum } from '../../shared/enums/Urls.enum';
 
 @Component({
-  selector: 'app-make',
-  templateUrl: './make.component.html',
-  styleUrls: ['./make.component.css']
+    selector: 'app-make',
+    templateUrl: './make.component.html',
+    styleUrls: ['./make.component.css']
 })
 export class MakeComponent implements OnInit {
 
-  title:string = "Make list";
-  makes: Make[] = [];
-  constructor(private apiService: ApiService, private http: Http) { 
+    title: string = "Make list";
+    makes: Make[] = [];
+    makesUrl = UrlEnum.Make;
+    constructor(private api: ApiService, private http: Http) {
 
-  }
+    }    
 
-  ngOnInit() {
-    console.log('ngoninit ', this);
+    ngOnInit() {
+        this.getList();
+    }
 
-    this.apiService.GetList('Makes').subscribe(response => {
-        this.makes = response;
-    })
-  }
+    delete(Id: number) {
+        this.api.Delete(ControllerEnum.Make, Id).subscribe(x => {
+            this.getList();
+        });
+    }
+    
+    private getList() {
+        this.api.GetList(ControllerEnum.Make).subscribe(response => {
+            this.makes = response;
+        })
+    }
 
-  callWithHeaders(){
-    let headers = new Headers();
-    this.createAuthorizationHeader(headers);
+    callWithHeaders() {
+        let headers = new Headers();
+        this.createAuthorizationHeader(headers);
+    }
 
-    //this.http.get('api/Makes/Test', { headers: headers })
-    //  .map(response => { 
-    //    var result = response.json();
-    //    console.log(' response ', response, ' result ', result);  
-    //    return result;
-    //   }).subscribe(function(item){ 
-    //     console.log('item ', item); 
-    //   });
-     
-  }
-  createAuthorizationHeader(headers: Headers) {
-    headers.append('content-type', 'application/json, text/plain, */*'); 
-  }
+    createAuthorizationHeader(headers: Headers) {
+        headers.append('content-type', 'application/json, text/plain, */*');
+    }
 
 }
