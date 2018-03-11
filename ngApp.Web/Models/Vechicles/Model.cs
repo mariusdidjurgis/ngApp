@@ -12,6 +12,8 @@ namespace ngApp.Web.Models.Vechicles
         [StringLength(255)]
         public string Name { get; set; }
         [Required]
+        public Color Color { get; set; } = Color.Black;
+        [Required]
         public long MakeId { get; set; }
         public Make Make{ get; set; }
         public ICollection<ModelFeature> Features { get; set; }
