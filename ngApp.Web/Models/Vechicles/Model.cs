@@ -1,4 +1,5 @@
 
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -12,7 +13,7 @@ namespace ngApp.Web.Models.Vechicles
         public string Name { get; set; }
         [Required]
         public long MakeId { get; set; }
-
         public Make Make{ get; set; }
+        public ICollection<ModelFeature> Features { get; set; }
     }
 }

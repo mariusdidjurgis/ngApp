@@ -20,7 +20,5 @@ namespace ngApp.Web.Models.Vechicles
         [Required]
         public long ModelId { get; set; }
         public Model Model { get; set; }
-        public ICollection<VehicleFeature> Features { get; set;}
-
     }
 }
