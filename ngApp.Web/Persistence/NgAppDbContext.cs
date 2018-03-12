@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using ngApp.Web.EntityConfigurations;
 using ngApp.Web.EntityConfigurations.Base;
+using ngApp.Web.EntityConfigurations.Vehicle;
 using ngApp.Web.Models.Vechicles;
 
 namespace ngApp.Web.Persistence

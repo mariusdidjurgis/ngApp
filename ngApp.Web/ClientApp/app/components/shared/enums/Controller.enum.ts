@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 export enum ControllerEnum {
 
     Feature = "Feature",
-    Make = "Make"
+    Make = "Make",
+    Model = "Model"
  
 }

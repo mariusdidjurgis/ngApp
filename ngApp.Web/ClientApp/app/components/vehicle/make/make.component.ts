@@ -15,6 +15,7 @@ export class MakeComponent implements OnInit {
     title: string = "Make list";
     makes: Make[] = [];
     makesUrl = UrlEnum.Make;
+    modelsUrl = UrlEnum.Model;
     constructor(private api: ApiService, private http: Http) {
 
     }    

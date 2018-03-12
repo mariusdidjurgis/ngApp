@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 export enum UrlEnum {
 
     Feature = "/features",
-    Make = "/makes"
+    Make = "/makes",
+    Model = "/models"
     
 }

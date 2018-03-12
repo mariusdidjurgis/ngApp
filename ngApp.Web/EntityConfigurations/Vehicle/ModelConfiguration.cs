@@ -7,19 +7,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace ngApp.Web.EntityConfigurations
+namespace ngApp.Web.EntityConfigurations.Vehicle
 {
 
-    internal class FeatureConfiguration : DbEntityConfiguration<Feature>
+    internal class ModelConfiguration : DbEntityConfiguration<Model>
     {
-        public override void Configure(EntityTypeBuilder<Feature> entity)
+        public override void Configure(EntityTypeBuilder<Model> entity)
         {
-            entity.ToTable("features");
+            entity.ToTable("models");
             entity.HasKey(c => c.Id);
             entity.Property(c => c.Name).IsRequired();
-            entity.Property(c => c.Code);
-            entity.Ignore(x => x.Price);
-            entity.Ignore(x => x.Active);
+            entity.Property(c => c.Color).IsRequired();
+            entity.Property(x => x.MakeId).IsRequired();
         }
     }
 }

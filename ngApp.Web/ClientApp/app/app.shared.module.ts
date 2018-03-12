@@ -16,6 +16,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CalendarModule } from 'primeng/calendar';
 import { MakeEditComponent } from './components/vehicle/make/make-edit/make-edit.component';
 import { FeatureEditComponent } from './components/vehicle/feature/feature-edit/feature-edit.component';
+import { ModelComponent } from './components/vehicle/model/model.component';
 
 @NgModule({
     declarations: [
@@ -25,6 +26,7 @@ import { FeatureEditComponent } from './components/vehicle/feature/feature-edit/
         FetchDataComponent,
         HomeComponent,
         MakeComponent,
+        ModelComponent,
         FeatureComponent,
         MakeEditComponent,
         FeatureEditComponent
@@ -42,6 +44,7 @@ import { FeatureEditComponent } from './components/vehicle/feature/feature-edit/
             { path: 'fetch-data', component: FetchDataComponent },
             { path: 'makes', component: MakeComponent },
             { path: 'makes/:id', component: MakeEditComponent },
+            { path: 'models', component: ModelComponent },
             { path: 'features', component: FeatureComponent },
             { path: 'features/:id', component: FeatureEditComponent },
             { path: '**', redirectTo: 'home' }
