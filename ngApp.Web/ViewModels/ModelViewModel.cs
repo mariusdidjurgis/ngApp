@@ -8,5 +8,6 @@ namespace ngApp.Web.ViewModels
         public string Name { get; set; }
         public IdWithName Color { get; set; }
         public IdWithName Make { get; set; }
+        public long MakeId { get; set; }
     }
 }

@@ -12,12 +12,7 @@ namespace ngApp.Web.Mapping
             CreateMap<Make, MakeViewModel>();
 
             CreateMap<Model, ModelViewModel>()
-                .BeforeMap((m, v) => { var make = m.Make.Name; })
-                .ForMember(x => x.Color, opt => opt.MapFrom(src => new IdWithName((long)src.Color, src.Color.ToString())))
-                .ForMember(x => x.Make, opt =>
-                {
-                    opt.MapFrom(src => new IdWithName(src.MakeId, src.Make.Name));
-                });
+                .ForMember(x => x.Color, opt => opt.MapFrom(src => new IdWithName((long)src.Color, src.Color.ToString())));
 
             CreateMap<ModelViewModel, Model>();
             CreateMap<Feature, FeatureViewModel>();

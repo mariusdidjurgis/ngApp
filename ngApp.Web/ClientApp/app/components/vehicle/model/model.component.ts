@@ -16,7 +16,7 @@ export class ModelComponent implements OnInit {
     modelsUrl = UrlEnum.Model;
     constructor(private api: ApiService, private http: Http) {
 
-    }    
+    }
 
     ngOnInit() {
         this.getList();
