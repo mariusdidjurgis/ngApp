@@ -15,6 +15,5 @@ namespace ngApp.Web.Persistence.Repositories.Vehicle
         {
             db = _db;
         }
-        
     }
 }

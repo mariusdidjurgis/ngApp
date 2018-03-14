@@ -1,4 +1,5 @@
-﻿using ngApp.Web.Interfaces.Repositories.Vehicles;
+﻿using Microsoft.EntityFrameworkCore;
+using ngApp.Web.Interfaces.Repositories.Vehicles;
 using ngApp.Web.Models.Vechicles;
 using System;
 using System.Collections.Generic;
@@ -15,6 +16,12 @@ namespace ngApp.Web.Persistence.Repositories.Vehicle
         {
             db = _db;
         }
-        
+
+        public IList<Model> GetAllWithMake()
+        {
+            ///return db.Make.Select(s => s.Models.ToList()).SelectMany(s => s.mo).ToList();
+            return new List<Model>();
+        }
+
     }
 }

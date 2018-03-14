@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using System.Linq;
-using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Query;
@@ -15,11 +14,9 @@ namespace ngApp.Web.Controllers
     public class FeatureController : MainController<Feature, FeatureViewModel>
     {
         private readonly IUnitOfWork unitOfWork;
-        private readonly IMapper mapper;
 
-        public FeatureController(IUnitOfWork _unitOfWork, IMapper mapper): base(_unitOfWork, mapper, _unitOfWork.Features)
+        public FeatureController(IUnitOfWork _unitOfWork): base(_unitOfWork, _unitOfWork.Features)
         {
-            this.mapper = mapper;
             unitOfWork = _unitOfWork;
         }
 

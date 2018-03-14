@@ -1,49 +1,67 @@
-﻿using AutoMapper;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using ngApp.Web.Interfaces.Base;
 using ngApp.Web.Interfaces.Repositories;
+using ngApp.Web.Models.Base;
 using ngApp.Web.Persistence;
+using ngApp.Web.ViewModels.Base;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Threading.Tasks;
 
 namespace ngApp.Web.Controllers
 {
-    public class MainController<Entity, ViewModel> : Controller
-        where Entity: class, IEntityId, new()
-        where ViewModel: class
+    public class MainController<TEntity, TViewModel> : Controller
+        where TEntity: EntityId, new()
+        where TViewModel: BaseIdViewModel<TEntity>, new()
     {
 
         private readonly IUnitOfWork unitOfWork;
-        private readonly IMapper mapper;
-        private readonly IRepository<Entity> repository;
+        private readonly IRepository<TEntity> repository;
 
-        public MainController(IUnitOfWork _unitOfWork, IMapper _mapper, IRepository<Entity> _repository)
+        public MainController(IUnitOfWork _unitOfWork,  IRepository<TEntity> _repository)
         {
-            mapper = _mapper;
             unitOfWork = _unitOfWork;
             repository = _repository;
         }
 
-        public IEnumerable<ViewModel> GetList()
-        {
-            return mapper.Map<List<Entity>, List<ViewModel>>(repository.GetAll().ToList());
-        }
+        //public IEnumerable<TViewModel> GetList()
+        //{
+        //    var list = repository.GetAll().ToList();
+        //    var vList = new List<TViewModel>();
+        //    foreach (var l in list)
+        //    {
+        //        Type viewModelType = typeof(TViewModel);
+        //        ConstructorInfo viewModelConstructor = viewModelType.GetConstructor(new[] { typeof(TEntity) });
+        //        if(viewModelConstructor != null)
+        //            vList.Add((TViewModel)viewModelConstructor.Invoke(new object[] { l }));
+        //    }
+
+        //    return vList;
+        //}
 
         [HttpGet]
         [Route("{Id:long}")]
-        public ViewModel GetById(long Id)
+        public TViewModel GetById(long Id)
         {
-            var model = Id > 0 ? repository.Get(Id) : new Entity();
+            var model = Id > 0 ? repository.Get(Id) : new TEntity();
+            var viewModel = new TViewModel();
 
-            return mapper.Map<Entity, ViewModel>(model);
+            Type viewModelType = typeof(TViewModel);
+            ConstructorInfo viewModelConstructor = viewModelType.GetConstructor(new[] { typeof(TEntity) });
+
+            if (viewModelConstructor != null)
+                viewModel = (TViewModel)viewModelConstructor.Invoke(new object[] { model });
+            
+            return viewModel;
         }
 
         [HttpPost]
-        public IActionResult Post([FromBody]ViewModel viewModel)
+        public IActionResult Post([FromBody]TViewModel viewModel)
         {
-            var model = mapper.Map<ViewModel, Entity>(viewModel);
+            var model = new TEntity();
+            viewModel.GetUpdatedModel(model);
             repository.Add(model);
             unitOfWork.Complete();
 
@@ -51,9 +69,11 @@ namespace ngApp.Web.Controllers
         }
 
         [HttpPut]
-        public IActionResult Put([FromBody]ViewModel viewModel)
+        public IActionResult Put([FromBody]TViewModel viewModel)
         {
-            var model = mapper.Map<ViewModel, Entity>(viewModel);
+            var model = repository.Get(viewModel.Id);
+            viewModel.GetUpdatedModel(model);
+            
             repository.Update(model);
             unitOfWork.Complete();
 

@@ -38,7 +38,7 @@ namespace ngApp.Web.Persistence.Repositories
             // this on your own.
             return Context.Set<TEntity>().ToList();
         }
-
+        
         public IEnumerable<TEntity> Find(Expression<Func<TEntity, bool>> predicate)
         {
             return Context.Set<TEntity>().Where(predicate);

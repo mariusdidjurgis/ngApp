@@ -8,6 +8,6 @@ namespace ngApp.Web.Interfaces.Repositories.Vehicles
 {
     public interface IModelRepository : IRepository<Model>
     {
-
+        IList<Model> GetAllWithMake();
     }
 }

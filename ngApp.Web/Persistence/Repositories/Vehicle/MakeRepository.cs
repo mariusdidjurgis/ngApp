@@ -1,4 +1,5 @@
-﻿using ngApp.Web.Interfaces.Repositories.Vehicles;
+﻿using Microsoft.EntityFrameworkCore;
+using ngApp.Web.Interfaces.Repositories.Vehicles;
 using ngApp.Web.Models.Vechicles;
 using System;
 using System.Collections.Generic;
@@ -14,6 +15,11 @@ namespace ngApp.Web.Persistence.Repositories.Vehicle
         public MakeRepository(NgAppDbContext _db) : base(_db)
         {
             db = _db;
+        }
+
+        public IList<Make> GetAllWithModels()
+        {
+            return db.Make.Include(x => x.Models).ToList();
         }
 
     }
