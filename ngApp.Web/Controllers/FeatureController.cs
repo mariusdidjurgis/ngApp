@@ -20,5 +20,15 @@ namespace ngApp.Web.Controllers
             unitOfWork = _unitOfWork;
         }
 
+        public IList<FeatureViewModel> GetList()
+        {
+            var vList = new List<FeatureViewModel>();
+            var list = unitOfWork.Features.GetAll();
+            foreach (var l in list)
+                vList.Add(new FeatureViewModel(l));
+
+            return vList;
+        }
+
     }
 }

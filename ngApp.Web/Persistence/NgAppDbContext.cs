@@ -13,6 +13,7 @@ namespace ngApp.Web.Persistence
         }
 
         public DbSet<Make> Make { get; set; }
+        public DbSet<Model> VehicleModel { get; set; }
         public DbSet<Vehicle> Vehicle{ get; set; }
         public DbSet<Feature> Feature { get; set; }
 

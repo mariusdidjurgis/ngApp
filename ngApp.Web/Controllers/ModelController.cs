@@ -21,7 +21,6 @@ namespace ngApp.Web.Controllers
         
         public IList<ModelViewModel> GetList()
         {
-
             var vList = new List<ModelViewModel>();
             var list = unitOfWork.Model.GetAllWithMake();
             foreach (var l in list)
