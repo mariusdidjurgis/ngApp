@@ -19,5 +19,11 @@ namespace ngApp.Web.Controllers
             ViewData["RequestId"] = Activity.Current?.Id ?? HttpContext.TraceIdentifier;
             return View();
         }
+
+        [Route("api/Home/GetRandomNumber")]
+        public double GetRandomNumber()
+        {
+            return (new Random()).NextDouble() * 100;
+        }
     }
 }

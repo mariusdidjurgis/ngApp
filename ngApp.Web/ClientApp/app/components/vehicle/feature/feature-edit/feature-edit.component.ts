@@ -16,16 +16,16 @@ export class FeatureEditComponent implements OnInit {
     
     model: Feature = new Feature(0, "", "");
     featureUrl = UrlEnum.Feature;
+    objObservable = this.api.observableTest();
     constructor(private api: ApiService, private activeRoute: ActivatedRoute, private router: Router, private http: Http) {
-        console.log(this);
-    }
+        this.objObservable.subscribe(x => { console.log(' subscribed in ctrl ', x); });    }
 
     ngOnInit() {
         this.GetModel();
     }
 
     onSubmit() {
-        this.api.Save(ControllerEnum.Feature, this.model, 'features');
+        this.api.Save(ControllerEnum.Feature, this.model, 'features', this.GetModel());
         if (this.model.Id > 0)
             this.GetModel();
     }
@@ -36,6 +36,11 @@ export class FeatureEditComponent implements OnInit {
                 this.model = response.json();
             });
         });
+    }
+
+    public ObservableTest(): string {
+        this.objObservable.next(Math.random());
+        return "";
     }
 
     get diagnostic() { return JSON.stringify(this.model); }
