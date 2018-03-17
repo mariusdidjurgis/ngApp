@@ -1,10 +1,11 @@
+using ngApp.Web.Models.Base;
 using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
 
 namespace ngApp.Web.Interfaces.Repositories
 {
-    public interface IRepository<TEntity> where TEntity : class
+    public interface IRepository<TEntity> where TEntity : EntityId
     {
         TEntity Get(long id);
         IEnumerable<TEntity> GetAll();

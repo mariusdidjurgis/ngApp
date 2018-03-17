@@ -17,7 +17,7 @@
             <th scope="row">{{ item.Id }}</th>
             <td>{{ item.Name }}</td>
             <td>{{ item.Color.Name }}</td>
-            <td>MakeId: {{ item.MakeId }}</td>
+            <td>Make: {{ item.Make.Name }}</td>
             <td>
                 <a [routerLink]="[modelsUrl, item.Id]"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
                 <button class="btn btn-link" (click)="delete(item.Id)"><i class="fa fa-times" aria-hidden="true"></i></button>

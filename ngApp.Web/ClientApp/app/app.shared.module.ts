@@ -17,6 +17,7 @@ import { CalendarModule } from 'primeng/calendar';
 import { MakeEditComponent } from './components/vehicle/make/make-edit/make-edit.component';
 import { FeatureEditComponent } from './components/vehicle/feature/feature-edit/feature-edit.component';
 import { ModelComponent } from './components/vehicle/model/model.component';
+import { ModelEditComponent } from './components/vehicle/model/model-edit/model-edit.component';
 
 @NgModule({
     declarations: [
@@ -27,6 +28,7 @@ import { ModelComponent } from './components/vehicle/model/model.component';
         HomeComponent,
         MakeComponent,
         ModelComponent,
+        ModelEditComponent,
         FeatureComponent,
         MakeEditComponent,
         FeatureEditComponent
@@ -45,6 +47,7 @@ import { ModelComponent } from './components/vehicle/model/model.component';
             { path: 'makes', component: MakeComponent },
             { path: 'makes/:id', component: MakeEditComponent },
             { path: 'models', component: ModelComponent },
+            { path: 'models/:id', component: ModelEditComponent },
             { path: 'features', component: FeatureComponent },
             { path: 'features/:id', component: FeatureEditComponent },
             { path: '**', redirectTo: 'home' }

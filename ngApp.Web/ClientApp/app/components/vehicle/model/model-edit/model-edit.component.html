@@ -1,0 +1,28 @@
+<h1>
+   Model: {{ model.Name }}
+</h1>
+<pre>
+    {{diagnostic}}
+</pre>
+<form role="form" #modelForm="ngForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" [(ngModel)]="model.Name" name="Name" class="form-control" id="name" placeholder="Enter Name">
+    </div>
+    <div class="form-group">
+        <label for="Color">Color</label>
+        <select [(ngModel)]="model.ColorId" name="Color" class="form-control" id="Color" placeholder="choose color">
+            <option *ngFor="let color of Colors" value="{{ color.Id }}">{{ color.Name }}</option>
+        </select>
+        <!--<input type="text" [(ngModel)]="model.Color" name="Color" class="form-control" id="Color" placeholder="choose color">-->
+    </div>
+    <div class="form-group">
+        <label for="Model">Make</label>
+        <select [(ngModel)]="model.MakeId" name="Make" class="form-control" id="Make" placeholder="choose make">
+            <option *ngFor="let make of Makes" value="{{ make.Id }}">{{ make.Name }}</option>
+        </select>
+    </div>
+
+    <button type="submit" class="btn btn-default">Submit</button>
+    <a [routerLink]="[modelUrl]" class="">To List</a>
+</form>

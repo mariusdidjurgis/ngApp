@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using ngApp.Web.Interfaces.Repositories;
+using ngApp.Web.Models.Base;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +8,7 @@ using System.Linq.Expressions;
 
 namespace ngApp.Web.Persistence.Repositories
 {
-    public class Repository<TEntity> : IRepository<TEntity> where TEntity : class
+    public class Repository<TEntity> : IRepository<TEntity> where TEntity : EntityId
     {
         protected readonly DbContext Context;
 
@@ -38,7 +39,7 @@ namespace ngApp.Web.Persistence.Repositories
             // this on your own.
             return Context.Set<TEntity>().ToList();
         }
-        
+
         public IEnumerable<TEntity> Find(Expression<Func<TEntity, bool>> predicate)
         {
             return Context.Set<TEntity>().Where(predicate);

@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using ngApp.Web.Interfaces.Repositories.Vehicles;
 using ngApp.Web.Models.Vechicles;
+using ngApp.Web.ViewModels.Base;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,5 +23,9 @@ namespace ngApp.Web.Persistence.Repositories.Vehicle
             return db.Make.Include(x => x.Models).ToList();
         }
 
+        public IList<IdWithName> GetIdWithNameAll()
+        {
+            return db.Make.Select(s => new IdWithName(s.Id, s.Name)).ToList();
+        }
     }
 }

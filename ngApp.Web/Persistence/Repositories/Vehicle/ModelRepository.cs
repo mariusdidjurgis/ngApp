@@ -19,8 +19,7 @@ namespace ngApp.Web.Persistence.Repositories.Vehicle
 
         public IList<Model> GetAllWithMake()
         {
-            ///return db.Make.Select(s => s.Models.ToList()).SelectMany(s => s.mo).ToList();
-            return new List<Model>();
+            return db.VehicleModel.Include(x => x.Make).ToList();
         }
 
     }

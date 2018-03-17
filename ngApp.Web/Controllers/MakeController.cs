@@ -6,6 +6,7 @@ using Microsoft.EntityFrameworkCore.Query;
 using ngApp.Web.Models.Vechicles;
 using ngApp.Web.Persistence;
 using ngApp.Web.ViewModels;
+using ngApp.Web.ViewModels.Base;
 
 namespace ngApp.Web.Controllers
 {
@@ -28,5 +29,11 @@ namespace ngApp.Web.Controllers
             
             return vList;
         }
+
+        public IList<IdWithName> GetSmallList()
+        {
+            return unitOfWork.Make.GetIdWithNameAll();
+        }
+
     }
 }

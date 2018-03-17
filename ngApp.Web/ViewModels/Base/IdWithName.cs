@@ -15,6 +15,7 @@ namespace ngApp.Web.ViewModels.Base
 
         public long Id { get; set; }
         public string Name { get; set; }
+        public long CountNr { get; set; }
     }
 
     public class IdWithNameAndCode : IdWithName
