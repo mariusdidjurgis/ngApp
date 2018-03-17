@@ -25,7 +25,7 @@ export class FeatureEditComponent implements OnInit {
     }
 
     onSubmit() {
-        this.api.Save(ControllerEnum.Feature, this.model, 'features', this.GetModel());
+        this.api.Save(ControllerEnum.Feature, this.model, 'features');
         if (this.model.Id > 0)
             this.GetModel();
     }
