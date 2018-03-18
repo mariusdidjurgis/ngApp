@@ -1,13 +1,13 @@
 using ngApp.Web.Models.Vechicles;
 using ngApp.Web.ViewModels.Base;
+using System;
 using System.Collections.Generic;
 
 namespace ngApp.Web.ViewModels
 {
     public class ModelViewModel : BaseNameViewModel<Model>
     {
-        public IdWithName Color { get; set; }
-        public long ColorId { get; set; }
+        public DateTime Date { get; set; } = DateTime.Now;
         public IdWithName Make { get; set; }
         public long MakeId { get; set; }
         public IList<FeatureViewModel> features { get; set; } = new List<FeatureViewModel>();
@@ -15,8 +15,7 @@ namespace ngApp.Web.ViewModels
         public ModelViewModel(){ }
         public ModelViewModel(Model model) : base(model)
         {
-            Color = new IdWithName((long)model.Color, model.Color.ToString());
-            ColorId = (long)model.Color;
+            Date = model.Date;
             Make = new IdWithName(model.Make?.Id ?? 0, model.Make?.Name); //lazy loading 
             MakeId = model.MakeId;
 
@@ -27,7 +26,7 @@ namespace ngApp.Web.ViewModels
         public override void GetUpdatedModel(Model model)
         {
             base.GetUpdatedModel(model);
-            model.Color = (Models.Vechicles.VehicleColor)ColorId;
+            model.Date = Date;
             model.MakeId = MakeId;
         }
     }

@@ -14,12 +14,10 @@ import { UrlEnum } from '../../../shared/enums/Urls.enum';
 })
 export class ModelEditComponent implements OnInit {
 
-    model: Model = new Model(0, "", 0, 0);
+    model: Model = new Model(0, "", new Date(), 0);
     modelUrl = UrlEnum.Model;
-    Colors: any[];
     Makes: any[];
     constructor(private api: ApiService, private activeRoute: ActivatedRoute, private router: Router, private http: Http) {
-        this.http.get("api/Home/GetColors").subscribe(response => this.Colors = response.json());
         this.http.get("api/Make/GetSmallList").subscribe(response => this.Makes = response.json());
     }
 
@@ -28,10 +26,6 @@ export class ModelEditComponent implements OnInit {
     }
 
     onSubmit() {
-        console.log(' submit rtyrt',  this.model, ' this ', this);
-
-        //return;
-
         this.api.Save(ControllerEnum.Model, this.model, UrlEnum.Model);
         if (this.model.Id > 0)
             this.GetModel();
@@ -40,7 +34,8 @@ export class ModelEditComponent implements OnInit {
     GetModel() {
         this.activeRoute.params.subscribe(params => {
             this.api.GetById(ControllerEnum.Model, +params['id']).subscribe(response => {
-                this.model = response.json();
+                this.model = new Model(response.json().Id, response.json().Name, new Date(response.json().Date), response.json().MakeId);
+                //this.model = response.json();
             });
         });
     }

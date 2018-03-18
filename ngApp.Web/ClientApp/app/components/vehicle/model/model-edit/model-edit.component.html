@@ -10,11 +10,8 @@
         <input type="text" [(ngModel)]="model.Name" name="Name" class="form-control" id="name" placeholder="Enter Name">
     </div>
     <div class="form-group">
-        <label for="Color">Color</label>
-        <select [(ngModel)]="model.ColorId" name="Color" class="form-control" id="Color" placeholder="choose color">
-            <option *ngFor="let color of Colors" value="{{ color.Id }}">{{ color.Name }}</option>
-        </select>
-        <!--<input type="text" [(ngModel)]="model.Color" name="Color" class="form-control" id="Color" placeholder="choose color">-->
+        <label for="Date">Date</label>
+        <p-calendar name="date" [(ngModel)]="model.Date" dateFormat="yy-mm-dd" placeholder="choose date"  [monthNavigator]="true" [yearNavigator]="true" yearRange="1970:2030" showIcon="true"></p-calendar>
     </div>
     <div class="form-group">
         <label for="Model">Make</label>
@@ -22,7 +19,6 @@
             <option *ngFor="let make of Makes" value="{{ make.Id }}">{{ make.Name }}</option>
         </select>
     </div>
-
     <button type="submit" class="btn btn-default">Submit</button>
     <a [routerLink]="[modelUrl]" class="">To List</a>
 </form>

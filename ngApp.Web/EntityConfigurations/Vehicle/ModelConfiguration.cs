@@ -17,7 +17,7 @@ namespace ngApp.Web.EntityConfigurations.Vehicle
             entity.ToTable("models");
             entity.HasKey(c => c.Id);
             entity.Property(c => c.Name).IsRequired();
-            entity.Property(c => c.Color).IsRequired();
+            entity.Property(c => c.Date).IsRequired();
             entity.Property(x => x.MakeId).IsRequired();
         }
     }

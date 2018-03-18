@@ -13,6 +13,6 @@ namespace ngApp.Web.Models.Vechicles
     {
         public DateTime Date { get; set; } = DateTime.Now;
         public string HeadQuatersLocation { get; set; }
-        public IList<Model> Models { get; set; }
+        public IList<Model> Models { get; set; } = new List<Model>();
     }
 }
