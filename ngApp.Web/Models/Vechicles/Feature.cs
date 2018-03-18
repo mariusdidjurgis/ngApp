@@ -9,5 +9,6 @@ namespace ngApp.Web.Models.Vechicles
     {
         public decimal Price { get; set; }
         public bool Active { get; set; }
+        public string Description { get; set; }
     }
 }

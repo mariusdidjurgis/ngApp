@@ -12,9 +12,10 @@ using ngApp.Web.Persistence;
 namespace ngApp.Web.Migrations
 {
     [DbContext(typeof(NgAppDbContext))]
-    partial class NgAppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20180318191840_featureDescription")]
+    partial class featureDescription
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
