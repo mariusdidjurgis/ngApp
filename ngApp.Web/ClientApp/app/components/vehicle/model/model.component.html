@@ -15,7 +15,7 @@
     <tbody>
         <tr *ngFor="let item of models">
             <th scope="row">{{ item.Id }}</th>
-            <td>{{ item.Name }}</td>
+            <td><a [routerLink]="[modelsUrl, item.Id]">{{ item.Name }}</a></td>
             <td>{{ item.Date | date: 'longDate'  }}</td>
             <td>Make: {{ item.Make.Name }}</td>
             <td>

@@ -19,16 +19,6 @@ namespace ngApp.Web.Controllers
         {
             unitOfWork = _unitOfWork;
         }
-        
-        public IList<MakeViewModel> GetList()
-        {
-            var vList = new List<MakeViewModel>();
-            var list = unitOfWork.Make.GetAllWithModels();
-            foreach (var l in list)
-                vList.Add(new MakeViewModel(l));
-            
-            return vList;
-        }
 
         public IList<IdWithName> GetSmallList()
         {

@@ -20,6 +20,7 @@ namespace ngApp.Web.Persistence
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.AddConfiguration(new FeatureConfiguration());
+            //modelBuilder.AddConfiguration(new ModelConfiguration());
 
             base.OnModelCreating(modelBuilder);
         }

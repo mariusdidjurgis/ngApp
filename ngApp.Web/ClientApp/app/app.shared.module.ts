@@ -14,6 +14,7 @@ import { MakeComponent } from './components/vehicle/make/make.component';
 import { FeatureComponent } from './components/vehicle/feature/feature.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CalendarModule } from 'primeng/calendar';
+import { DropdownModule } from 'primeng/dropdown';
 import { MakeEditComponent } from './components/vehicle/make/make-edit/make-edit.component';
 import { FeatureEditComponent } from './components/vehicle/feature/feature-edit/feature-edit.component';
 import { ModelComponent } from './components/vehicle/model/model.component';
@@ -38,6 +39,7 @@ import { ModelEditComponent } from './components/vehicle/model/model-edit/model-
         HttpModule,
         BrowserAnimationsModule,
         CalendarModule,
+        DropdownModule,
         FormsModule,
         RouterModule.forRoot([
             { path: '', redirectTo: 'home', pathMatch: 'full' },

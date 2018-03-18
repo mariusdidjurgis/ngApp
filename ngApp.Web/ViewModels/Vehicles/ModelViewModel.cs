@@ -16,7 +16,7 @@ namespace ngApp.Web.ViewModels
         public ModelViewModel(Model model) : base(model)
         {
             Date = model.Date;
-            Make = new IdWithName(model.Make?.Id ?? 0, model.Make?.Name); //lazy loading 
+            Make = new IdWithName(model.Make?.Id ?? 0, model.Make?.Name);
             MakeId = model.MakeId;
 
             foreach (var f in model.Features)
@@ -27,7 +27,7 @@ namespace ngApp.Web.ViewModels
         {
             base.GetUpdatedModel(model);
             model.Date = Date;
-            model.MakeId = MakeId;
+            model.MakeId = Make.Id;
         }
     }
 }

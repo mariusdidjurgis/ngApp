@@ -19,6 +19,6 @@ namespace ngApp.Web.Models.Vechicles
         public string Color { get; set; }
         [Required]
         public long ModelId { get; set; }
-        public Model Model { get; set; }
+        public virtual Model Model { get; set; }
     }
 }

@@ -14,7 +14,7 @@ import { UrlEnum } from '../../../shared/enums/Urls.enum';
 })
 export class ModelEditComponent implements OnInit {
 
-    model: Model = new Model(0, "", new Date(), 0);
+    model: Model = new Model(0, "", new Date(), { Id: 0, Name: ""});
     modelUrl = UrlEnum.Model;
     Makes: any[];
     constructor(private api: ApiService, private activeRoute: ActivatedRoute, private router: Router, private http: Http) {
@@ -34,7 +34,7 @@ export class ModelEditComponent implements OnInit {
     GetModel() {
         this.activeRoute.params.subscribe(params => {
             this.api.GetById(ControllerEnum.Model, +params['id']).subscribe(response => {
-                this.model = new Model(response.json().Id, response.json().Name, new Date(response.json().Date), response.json().MakeId);
+                this.model = new Model(response.json().Id, response.json().Name, new Date(response.json().Date), response.json().Make);
                 //this.model = response.json();
             });
         });

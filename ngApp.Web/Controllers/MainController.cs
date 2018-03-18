@@ -26,20 +26,20 @@ namespace ngApp.Web.Controllers
             repository = _repository;
         }
 
-        //public IEnumerable<TViewModel> GetList()
-        //{
-        //    var list = repository.GetAll().ToList();
-        //    var vList = new List<TViewModel>();
-        //    foreach (var l in list)
-        //    {
-        //        Type viewModelType = typeof(TViewModel);
-        //        ConstructorInfo viewModelConstructor = viewModelType.GetConstructor(new[] { typeof(TEntity) });
-        //        if(viewModelConstructor != null)
-        //            vList.Add((TViewModel)viewModelConstructor.Invoke(new object[] { l }));
-        //    }
+        public IEnumerable<TViewModel> GetList()
+        {
+            var list = repository.GetAll().ToList();
+            var vList = new List<TViewModel>();
+            foreach (var l in list)
+            {
+                Type viewModelType = typeof(TViewModel);
+                ConstructorInfo viewModelConstructor = viewModelType.GetConstructor(new[] { typeof(TEntity) });
+                if (viewModelConstructor != null)
+                    vList.Add((TViewModel)viewModelConstructor.Invoke(new object[] { l }));
+            }
 
-        //    return vList;
-        //}
+            return vList;
+        }
 
         [HttpGet]
         [Route("{Id:long}")]
@@ -53,8 +53,15 @@ namespace ngApp.Web.Controllers
 
             if (viewModelConstructor != null)
                 viewModel = (TViewModel)viewModelConstructor.Invoke(new object[] { model });
-            
+
+            OnGet(viewModel);
+
             return viewModel;
+        }
+
+        protected virtual void OnGet(TViewModel viewModel)
+        {
+
         }
 
         [HttpPost]

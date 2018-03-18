@@ -18,16 +18,10 @@ namespace ngApp.Web.Controllers
         {
             unitOfWork = _unitOfWork;
         }
-        
-        public IList<ModelViewModel> GetList()
+     
+        protected override void OnGet(ModelViewModel viewModel)
         {
-            var vList = new List<ModelViewModel>();
-            var list = unitOfWork.Model.GetAllWithMake();
-            foreach (var l in list)
-                vList.Add(new ModelViewModel(l));
-
-            return vList;
+            base.OnGet(viewModel);
         }
-
     }
 }

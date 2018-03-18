@@ -7,9 +7,9 @@ namespace ngApp.Web.Models.Vechicles
         public long Id { get; set; }
         [Required]
         public long ModelId { get; set; }
-        public Model Model { get; set; }
+        public virtual Model Model { get; set; }
         [Required]
         public long FeatureId { get; set; }
-        public Feature Feature { get; set; }
+        public virtual Feature Feature { get; set; }
     }
 }

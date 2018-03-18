@@ -14,10 +14,8 @@
         <p-calendar name="date" [(ngModel)]="model.Date" dateFormat="yy-mm-dd" placeholder="choose date"  [monthNavigator]="true" [yearNavigator]="true" yearRange="1970:2030" showIcon="true"></p-calendar>
     </div>
     <div class="form-group">
-        <label for="Model">Make</label>
-        <select [(ngModel)]="model.MakeId" name="Make" class="form-control" id="Make" placeholder="choose make">
-            <option *ngFor="let make of Makes" value="{{ make.Id }}">{{ make.Name }}</option>
-        </select>
+        <label for="Model">Make <span class="required">*</span></label>
+        <p-dropdown name="Make" [options]="Makes" [(ngModel)]="model.Make" optionLabel="Name" optionValue="Id"  [style]="{'width':'200px'}" required></p-dropdown>
     </div>
     <button type="submit" class="btn btn-default">Submit</button>
     <a [routerLink]="[modelUrl]" class="">To List</a>

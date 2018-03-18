@@ -12,7 +12,7 @@ namespace ngApp.Web.Models.Vechicles
     {
         public DateTime Date { get; set; } = DateTime.Now;
         public long MakeId { get; set; }
-        public Make Make { get; set; }
-        public ICollection<ModelFeature> Features { get; set; } = new List<ModelFeature>();
+        public virtual Make Make { get; set; }
+        public virtual ICollection<ModelFeature> Features { get; set; } = new List<ModelFeature>();
     }
 }
