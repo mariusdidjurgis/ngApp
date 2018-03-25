@@ -1,4 +1,5 @@
 import { ApiService } from './components/shared/api.service';
+import { DialogService } from './components/shared/Dialogs/dialog.service';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -15,6 +16,8 @@ import { FeatureComponent } from './components/vehicle/feature/feature.component
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CalendarModule } from 'primeng/calendar';
 import { DropdownModule } from 'primeng/dropdown';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
 import { MakeEditComponent } from './components/vehicle/make/make-edit/make-edit.component';
 import { FeatureEditComponent } from './components/vehicle/feature/feature-edit/feature-edit.component';
 import { ModelComponent } from './components/vehicle/model/model.component';
@@ -40,6 +43,7 @@ import { ModelEditComponent } from './components/vehicle/model/model-edit/model-
         BrowserAnimationsModule,
         CalendarModule,
         DropdownModule,
+        NgbModule.forRoot(),
         FormsModule,
         RouterModule.forRoot([
             { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -56,7 +60,8 @@ import { ModelEditComponent } from './components/vehicle/model/model-edit/model-
         ]),        
     ],
     providers: [
-        ApiService
+        ApiService,
+        DialogService
     ]
 })
 export class AppModuleShared {
