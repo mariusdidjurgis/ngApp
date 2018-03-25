@@ -3,7 +3,8 @@
 </h1>
 
 <div>
-    <a [routerLink]="[featureUrl, 0]" class="btn btn-primary">Create new</a>
+    <app-feature-new (featureCreated)="addNewFeature($event)"></app-feature-new>
+    <a [routerLink]="[featureUrl, 0]" class="btn btn-primary">Create new from Form</a>
 </div>
 <table class="table">
   <thead>
@@ -17,10 +18,10 @@
   </thead>
   <tbody>
     <tr *ngFor="let item of features">
-      <th scope="row">{{ item.Id }}</th>
+      <th scope="row" (click)="select(item.Id)">{{ item.Id }} <input type="radio" name="{{ 'selectedFeature' }}" [checked]="item.Selected" /></th>
       <td><a [routerLink]="[featureUrl, item.Id]">{{ item.Name }}</a></td>
       <td>{{ item.Code }}</td>
-      <td>{{ item.Description }}</td>
+      <td><input type="text" name="description" [(ngModel)]="item.Description" />{{ item.Description }}</td>
       <td>
           <a [routerLink]="[featureUrl, item.Id]"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
           <button class="btn btn-link" (click)="delete(item.Id)"><i class="fa fa-times" aria-hidden="true"></i></button>
@@ -28,3 +29,7 @@
     </tr>
   </tbody>
 </table>
+<div class="feature col-xs-12">
+    <app-feature-view *ngFor="let feature of features" [ftElement]="feature">
+    </app-feature-view>
+</div>

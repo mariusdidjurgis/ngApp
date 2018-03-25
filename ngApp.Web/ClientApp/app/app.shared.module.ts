@@ -20,6 +20,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { MakeEditComponent } from './components/vehicle/make/make-edit/make-edit.component';
 import { FeatureEditComponent } from './components/vehicle/feature/feature-edit/feature-edit.component';
+import { FeatureViewComponent } from './components/vehicle/feature/feature-view/feature-view.component';
+import { FeatureNewComponent } from './components/vehicle/feature/feature-new/feature-new.component';
 import { ModelComponent } from './components/vehicle/model/model.component';
 import { ModelEditComponent } from './components/vehicle/model/model-edit/model-edit.component';
 
@@ -35,7 +37,9 @@ import { ModelEditComponent } from './components/vehicle/model/model-edit/model-
         ModelEditComponent,
         FeatureComponent,
         MakeEditComponent,
-        FeatureEditComponent
+        FeatureEditComponent,
+        FeatureViewComponent,
+        FeatureNewComponent
     ],
     imports: [
         CommonModule,

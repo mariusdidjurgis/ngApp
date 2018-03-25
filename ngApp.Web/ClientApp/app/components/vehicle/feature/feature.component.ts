@@ -16,7 +16,7 @@ export class FeatureComponent implements OnInit {
     title: string = "feature list";
     features: Feature[] = [];
     featureUrl = UrlEnum.Feature;
-
+    
     constructor(private api: ApiService, private http: Http) {
         
     }
@@ -26,11 +26,19 @@ export class FeatureComponent implements OnInit {
             this.getList();
         });
     }
-
+     
     ngOnInit() {
         this.getList();
     }
+
+    select(Id: number) {
+        this.features.forEach(x => { x.Selected = x.Id == Id });
+    }
     
+    addNewFeature(feature: Feature) {
+        this.features.push(feature);
+    }
+
     private getList() {
         this.api.GetList(ControllerEnum.Feature).subscribe(response => {
             this.features = response;
