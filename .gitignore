@@ -237,3 +237,5 @@ _Pvt_Extensions
 .fake/
 ngApp.Web/wwwroot/dist/
 ngApp.Web/ClientApp/dist/
+
+echo package-lock.json>.gitignore

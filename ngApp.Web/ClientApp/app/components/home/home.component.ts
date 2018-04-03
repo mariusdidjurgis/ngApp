@@ -1,35 +1,41 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { DialogService } from '../shared/Dialogs/dialog.service';
-import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
     selector: 'home',
     templateUrl: './home.component.html',
     styleUrls: ['./home.component.css']
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit {
     closeResult: string;
 
-    constructor(public dlgService: DialogService, private modalService: NgbModal) {
+    cars: Car[];
+    cols: any[];
+
+    constructor(public dlgService: DialogService) {
 
     }
-    
-    openSimpleModal(content: any) {//dependant on bootstrap 4 styles
-        console.log(' openSimpleModal132', this);
-        this.modalService.open(content).result.then((result) => {
-            this.closeResult = `Closed with: ${result}`;
-        }, (reason) => {
-            this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
-        });
-    }
 
-    private getDismissReason(reason: any): string {
-        if (reason === ModalDismissReasons.ESC) {
-            return 'by pressing ESC';
-        } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
-            return 'by clicking on a backdrop';
-        } else {
-            return `with: ${reason}`;
+
+    ngOnInit() {
+        //this.carService.getCarsSmall().then(cars => this.cars = cars);
+
+        this.cars = [new Car("asdasd", new Date("2010-05-18"), "mybrand", "blue")];
+
+        for (let i = 0; i < 100; i++) {
+            this.cars.push(new Car("vinas" + i, new Date((1990 + i) + "-06-" + (Math.floor((Math.random() * 27))+1)), "mybrand" + i, "blue"));
         }
+
+        this.cols = [
+            { field: 'vin', header: 'Vin' },
+            { field: 'year', header: 'Year' },
+            { field: 'brand', header: 'Brand' },
+            { field: 'color', header: 'Color' }
+        ];
+    }
+}
+class Car{
+    constructor(private vin: string, private year: Date, private brand: string, private color: string) {
+
     }
 }

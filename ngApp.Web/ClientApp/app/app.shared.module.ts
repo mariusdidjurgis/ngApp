@@ -16,7 +16,8 @@ import { FeatureComponent } from './components/vehicle/feature/feature.component
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CalendarModule } from 'primeng/calendar';
 import { DropdownModule } from 'primeng/dropdown';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { TableModule } from 'primeng/table';
+import { InputMaskModule } from 'primeng/inputmask';
 
 import { MakeEditComponent } from './components/vehicle/make/make-edit/make-edit.component';
 import { FeatureEditComponent } from './components/vehicle/feature/feature-edit/feature-edit.component';
@@ -47,7 +48,8 @@ import { ModelEditComponent } from './components/vehicle/model/model-edit/model-
         BrowserAnimationsModule,
         CalendarModule,
         DropdownModule,
-        NgbModule.forRoot(),
+        TableModule,
+        InputMaskModule,
         FormsModule,
         RouterModule.forRoot([
             { path: '', redirectTo: 'home', pathMatch: 'full' },

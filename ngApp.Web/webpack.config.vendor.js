@@ -2,6 +2,9 @@ const path = require('path');
 const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const merge = require('webpack-merge');
+const jQuery = require('jquery');
+var $ = require('jquery');
+
 const treeShakableModules = [
     '@angular/animations',
     '@angular/common',
@@ -15,12 +18,12 @@ const treeShakableModules = [
     'zone.js',
 ];
 const nonTreeShakableModules = [
+    'jquery',
     'bootstrap',
     'bootstrap/dist/css/bootstrap.css',
     'es6-promise',
     'es6-shim',
     'event-source-polyfill',
-    'jquery',    
     'font-awesome/css/font-awesome.css',
     'primeng/resources/themes/omega/theme.css',
     'primeng/resources/primeng.css',
