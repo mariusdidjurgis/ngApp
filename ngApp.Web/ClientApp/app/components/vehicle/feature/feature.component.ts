@@ -1,9 +1,10 @@
 import { ApiService } from './../../shared/api.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, ContentChild } from '@angular/core';
 import { Http } from '@angular/http';
 import { Feature } from './feature';
 import { ControllerEnum } from '../../shared/enums/Controller.enum';
 import { UrlEnum } from '../../shared/enums/Urls.enum';
+import { FeatureNewComponent } from './feature-new/feature-new.component';
 
 @Component({
   selector: 'app-feature',
@@ -16,9 +17,14 @@ export class FeatureComponent implements OnInit {
     title: string = "feature list";
     features: Feature[] = [];
     featureUrl = UrlEnum.Feature;
-    
+    @ViewChild(FeatureNewComponent) featureNewComponent: FeatureNewComponent;
+    @ViewChild('whateverElement') elem: ElementRef;
+
     constructor(private api: ApiService, private http: Http) {
-        
+        //dont do like this
+        //this.elem.nativeElement.value = 'some value';
+
+        console.log('FeatureComponent', this);
     }
     
     delete(Id: number) {

@@ -3,7 +3,10 @@
 </h1>
 
 <div>
-    <app-feature-new (featureCreated)="addNewFeature($event)"></app-feature-new>
+    <app-feature-new (ftCreated)="addNewFeature($event)">
+        <p #contentParagraph>From outside FeatureNewComponent</p>
+    </app-feature-new>
+    <input type="text" name="whateverElement" #whateverElement />
     <a [routerLink]="[featureUrl, 0]" class="btn btn-primary">Create new from Form</a>
 </div>
 <table class="table">

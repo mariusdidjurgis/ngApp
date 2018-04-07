@@ -2,8 +2,39 @@ import { WithId } from "../../shared/interfces/withId.interface";
 
 export class Feature implements WithId {
 
+    public Id: number
+    public Name: string;
+    public Code: string;
+    public Description: string;
     Selected: boolean;
-    constructor(public Id: number, public Name: string, public Code: string, public Description: string = '') {
+    
+    constructor(Id: number = 0, Name: string = '', Code: string = '', Description: string = '') {
+        this.Id = Id;
+        this.Name = name;
+        this.Code = Code;
+        this.Description = Description;
+    }
+}
 
+interface IBox {
+    x: number;
+    y: number;
+    height: number;
+    width: number;
+}
+
+class Box {
+    public x: number;
+    public y: number;
+    public height: number;
+    public width: number;
+
+    constructor();
+    constructor(obj: IBox);
+    constructor(obj?: any) {
+        this.x = obj && obj.x || 0
+        this.y = obj && obj.y || 0
+        this.height = obj && obj.height || 0
+        this.width = obj && obj.width || 0;
     }
 }

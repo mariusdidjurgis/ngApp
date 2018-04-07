@@ -1,17 +1,19 @@
-import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output, ViewEncapsulation, ContentChild, ElementRef } from '@angular/core';
 import { Feature } from '../feature';
 
 @Component({
     selector: 'app-feature-new',
-    templateUrl: './feature-new.component.html'
+    templateUrl: './feature-new.component.html',
+    encapsulation: ViewEncapsulation.Emulated// Native, None 
 })
 export class FeatureNewComponent implements OnInit {
 
-    model: Feature = new Feature(0, "", "", "");
-    @Output() featureCreated = new EventEmitter<Feature>();
+    model: Feature = new Feature();
+    @Output('ftCreated') featureCreated = new EventEmitter<Feature>();
+    @ContentChild('contentParagraph') paragraph: ElementRef;
 
     constructor() {
-
+        console.log('FeatureNewComponent', this);
     }
 
     ngOnInit() {
@@ -20,6 +22,6 @@ export class FeatureNewComponent implements OnInit {
 
     Create() {
         this.featureCreated.emit(this.model);
-        this.model = new Feature(0, "", "", "");
+        this.model = new Feature();
     }
 }
