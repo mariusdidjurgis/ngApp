@@ -8,6 +8,8 @@
                 <span class='icon-bar'></span>
             </button>
             <a class='navbar-brand' [routerLink]="['/home']">ngApp.Web</a>
+            <li *ngIf="!authenticated" id="nav-login-btn" class=""><a href="javascript:void(0);" (click)="login($event);" class="">Login</a></li>
+            <li *ngIf="authenticated" id="nav-logout-btn" class=""><a href="javascript:void(0);" (click)="logout($event)" class="">Logout</a></li>
         </div>
         <div class='clearfix'></div>
         <div class='navbar-collapse collapse'>

@@ -15,7 +15,9 @@ export class MakeEditComponent implements OnInit {
     model: Make = new Make(0, "", new Date(), "");
     makesUrl = UrlEnum.Make;
 
-    constructor(private api: ApiService, private activeRoute: ActivatedRoute) { }
+    constructor(private api: ApiService, private activeRoute: ActivatedRoute) {
+        console.log('MakeEditComponent', this, ' data.couldBeModel ', this.activeRoute.snapshot['data'].couldBeModel);
+    }
 
     ngOnInit() {
         this.GetModel();

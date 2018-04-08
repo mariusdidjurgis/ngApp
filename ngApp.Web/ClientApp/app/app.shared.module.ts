@@ -25,6 +25,8 @@ import { FeatureViewComponent } from './components/vehicle/feature/feature-view/
 import { FeatureNewComponent } from './components/vehicle/feature/feature-new/feature-new.component';
 import { ModelComponent } from './components/vehicle/model/model.component';
 import { ModelEditComponent } from './components/vehicle/model/model-edit/model-edit.component';
+import { AuthService } from './components/shared/Auth.service';
+import { AuthGuardService } from './components/shared/auth-guard.service';
 
 @NgModule({
     declarations: [
@@ -56,18 +58,23 @@ import { ModelEditComponent } from './components/vehicle/model/model-edit/model-
             { path: 'home', component: HomeComponent },
             { path: 'counter', component: CounterComponent },
             { path: 'fetch-data', component: FetchDataComponent },
-            { path: 'makes', component: MakeComponent },
-            { path: 'makes/:id', component: MakeEditComponent },
+            { path: 'makes', component: MakeComponent, canActivate: [AuthGuardService] },
+            { path: 'makes/:id', component: MakeEditComponent, data: { couldBeModel: { Id: 1, Name: "name"} } },
             { path: 'models', component: ModelComponent },
             { path: 'models/:id', component: ModelEditComponent },
-            { path: 'features', component: FeatureComponent },
-            { path: 'features/:id', component: FeatureEditComponent },
+            {
+                path: 'features', component: FeatureComponent, children: [
+                    { path: ':id', component: FeatureEditComponent },
+                ]
+            },            
             { path: '**', redirectTo: 'home' }
         ]),        
     ],
     providers: [
         ApiService,
-        DialogService
+        DialogService,
+        AuthService,
+        AuthGuardService
     ]
 })
 export class AppModuleShared {

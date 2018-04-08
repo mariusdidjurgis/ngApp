@@ -14,11 +14,12 @@ import { UrlEnum } from '../../../shared/enums/Urls.enum';
 })
 export class FeatureEditComponent implements OnInit {
     
-    model: Feature = new Feature(0, "", "");
+    model: Feature = new Feature();
     featureUrl = UrlEnum.Feature;
     objObservable = this.api.observableTest();
     constructor(private api: ApiService, private activeRoute: ActivatedRoute, private router: Router, private http: Http) {
-        this.objObservable.subscribe(x => { console.log(' subscribed in ctrl ', x); });    }
+        this.objObservable.subscribe(x => { console.log(' subscribed in ctrl ', x); });
+    }
 
     ngOnInit() {
         this.GetModel();
