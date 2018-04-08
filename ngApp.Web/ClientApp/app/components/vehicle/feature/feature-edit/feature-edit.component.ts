@@ -3,7 +3,6 @@ import { Http } from '@angular/http';
 import { ApiService } from '../../../shared/api.service';
 import { ActivatedRoute, RouterModule, Routes, Router } from '@angular/router';
 import { Feature } from '../feature';
-import { CommonService } from '../../../shared/Common.service';
 import { ControllerEnum } from '../../../shared/enums/Controller.enum';
 import { UrlEnum } from '../../../shared/enums/Urls.enum';
 

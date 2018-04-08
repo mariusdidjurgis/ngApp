@@ -27,6 +27,8 @@ import { ModelComponent } from './components/vehicle/model/model.component';
 import { ModelEditComponent } from './components/vehicle/model/model-edit/model-edit.component';
 import { AuthService } from './components/shared/Auth.service';
 import { AuthGuardService } from './components/shared/auth-guard.service';
+import { MakeResolverService } from './components/shared/Resolvers/make-resolver.service';
+import { CommonService } from './components/shared/Common.service';
 
 @NgModule({
     declarations: [
@@ -59,7 +61,7 @@ import { AuthGuardService } from './components/shared/auth-guard.service';
             { path: 'counter', component: CounterComponent },
             { path: 'fetch-data', component: FetchDataComponent },
             { path: 'makes', component: MakeComponent, canActivate: [AuthGuardService] },
-            { path: 'makes/:id', component: MakeEditComponent, data: { couldBeModel: { Id: 1, Name: "name"} } },
+            { path: 'makes/:id', component: MakeEditComponent, data: { message: "static message" }, resolve: { model: MakeResolverService } },
             { path: 'models', component: ModelComponent },
             { path: 'models/:id', component: ModelEditComponent },
             {
@@ -74,7 +76,9 @@ import { AuthGuardService } from './components/shared/auth-guard.service';
         ApiService,
         DialogService,
         AuthService,
-        AuthGuardService
+        AuthGuardService,
+        MakeResolverService,
+        CommonService
     ]
 })
 export class AppModuleShared {

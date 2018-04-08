@@ -2,7 +2,7 @@ import { Http } from '@angular/http';
 import { Injectable } from '@angular/core';
 import 'rxjs/add/operator/map';
 import { WithId } from './interfces/withId.interface';
-import { Router } from '@angular/router';
+import { Router, Resolve, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 import { Subject } from 'rxjs/Subject';
 import { ReplaySubject } from 'rxjs/Rx';
@@ -14,7 +14,7 @@ export class ApiService {
     constructor(private http: Http, private router: Router) {
         this.project.subscribe(result => { console.log('Subscription Streaming:', result) });
     }
-  
+    
     GetList(controller: string){
         return this.http.get('api/' + controller + '/GetList').map(response => response.json());
     }

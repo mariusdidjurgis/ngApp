@@ -7,19 +7,20 @@
 <div [hidden]="submitted">
     <form name='makeForm' #makeForm="ngForm" (ngSubmit)="onSubmit()">
         <div class="form-group">
-          <label for="MakeName">Name</label><span class="required">*</span>
-          <input type="text" required #mycustomid class="form-control" id="MakeName" name="Name" [(ngModel)]="model.Name" placeholder="Enter name">
-          <br>TODO: remove this: {{mycustomid.className}}
+            <label for="MakeName">Name</label><span class="required">*</span>
+            <input type="text" required #mycustomid class="form-control" id="MakeName" name="Name" [(ngModel)]="model.Name" placeholder="Enter name">
+            <br>TODO: remove this: {{mycustomid.className}}
         </div>
         <div class="form-group">
-          <label for="DateEstabl">Date</label>
-          <p-calendar name="date" [(ngModel)]="model.Date" dateFormat="yy-mm-dd"></p-calendar>
+            <label for="DateEstabl">Date</label>
+            <p-calendar name="date" [(ngModel)]="model.Date" dateFormat="yy-mm-dd"></p-calendar>
         </div>
         <div class="form-group">
-          <label for="HeadQuatersLocation">HeadQuaters location</label>
-          <input type="text" class="form-control" id="HeadQuatersLocation" name="HeadQuatersLocation" [(ngModel)]="model.HeadQuatersLocation" placeholder="Enter location">
+            <label for="HeadQuatersLocation">HeadQuaters location</label>
+            <input type="text" class="form-control" id="HeadQuatersLocation" name="HeadQuatersLocation" [(ngModel)]="model.HeadQuatersLocation" placeholder="Enter location">
         </div>
-      
+
+        <button type="button" class="btn btn-pimary" (click)="test()">test</button>
         <button type="submit" class="btn btn-success" [disabled]="!makeForm.form.valid">Submit</button>
-      </form>
+    </form>
 </div>
