@@ -23,5 +23,32 @@ namespace ngApp.Web.Controllers
         {
             base.OnGet(viewModel);
         }
+
+        protected override void OnPost(Model model, ModelViewModel viewModel)
+        {
+            base.OnPost(model, viewModel);
+            if (viewModel.features != null)
+            {
+                var fList = model.Features.ToList();
+                var featuresCount = model.Features.Count;
+                for (var i = 0; i < featuresCount; i++)
+                {
+                    var ff = fList[i];
+                    model.Features.Remove(ff);
+                }
+
+                foreach (var f in viewModel.features)
+                {
+                    var fe = unitOfWork.Features.GetAll().ToList().Where(x => x.Id == f.Id).Single();
+                    var fm = new ModelFeature() {
+                        ModelId = model.Id,
+                        FeatureId = fe.Id
+                    };
+
+                    model.Features.Add(fm);
+                }
+            }
+        }
+        
     }
 }

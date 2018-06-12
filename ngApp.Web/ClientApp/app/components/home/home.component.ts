@@ -1,5 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { DialogService } from '../shared/Dialogs/dialog.service';
+import { Observable } from 'rxjs/Observable';
+import { Notification } from 'rxjs/Notification';
+import { Http } from '@angular/http';
+import { ControllerEnum } from '../shared/enums/Controller.enum';
+import { Make } from '../vehicle/make/Make';
+import 'rxjs/add/observable/of';
 
 @Component({
     selector: 'home',
@@ -12,10 +18,20 @@ export class HomeComponent implements OnInit {
     cars: Car[];
     cols: any[];
 
-    constructor(public dlgService: DialogService) {
+    constructor(public dlgService: DialogService, private http: Http) {
 
     }
 
+    test() {
+        this.getobservable().subscribe(r => { console.log('r', r);});
+        console.log('test',  this);
+    }
+
+    getobservable(): Observable<any>{
+        var obs = Observable.of({ Id: 1, Name: "aa" });
+
+        return obs;
+    }
 
     ngOnInit() {
         //this.carService.getCarsSmall().then(cars => this.cars = cars);

@@ -82,9 +82,15 @@ namespace ngApp.Web.Controllers
             viewModel.GetUpdatedModel(model);
             
             repository.Update(model);
+            OnPost(model, viewModel);
             unitOfWork.Complete();
 
             return Ok(model.Id);
+        }
+
+        protected virtual void OnPost(TEntity model, TViewModel viewModel)
+        {
+
         }
 
         [HttpDelete("{Id:long}")]

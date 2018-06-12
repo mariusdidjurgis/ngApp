@@ -6,6 +6,7 @@ import { Model } from '../model';
 import { CommonService } from '../../../shared/Common.service';
 import { ControllerEnum } from '../../../shared/enums/Controller.enum';
 import { UrlEnum } from '../../../shared/enums/Urls.enum';
+import { Feature } from '../../feature/feature';
 
 @Component({
     selector: 'app-model-edit',
@@ -35,6 +36,10 @@ export class ModelEditComponent implements OnInit {
         this.activeRoute.params.subscribe(params => {
             this.api.GetById(ControllerEnum.Model, +params['id']).subscribe(response => {
                 this.model = new Model(response.json().Id, response.json().Name, new Date(response.json().Date), response.json().Make);
+                var featuresList = new Array<Feature>();
+                featuresList.push(new Feature(1, "", "", ""));
+                featuresList.push(new Feature(2, "", "", ""));
+                this.model.features = featuresList;
                 //this.model = response.json();
             });
         });
