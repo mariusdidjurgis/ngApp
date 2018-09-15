@@ -13,6 +13,7 @@ import { FetchDataComponent } from './components/fetchdata/fetchdata.component';
 import { CounterComponent } from './components/counter/counter.component';
 import { MakeComponent } from './components/vehicle/make/make.component';
 import { FeatureComponent } from './components/vehicle/feature/feature.component';
+import { CustomerComponent } from './components/shared/Components/customer/customer.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CalendarModule } from 'primeng/calendar';
 import { DropdownModule } from 'primeng/dropdown';
@@ -44,7 +45,8 @@ import { CommonService } from './components/shared/Common.service';
         MakeEditComponent,
         FeatureEditComponent,
         FeatureViewComponent,
-        FeatureNewComponent
+        FeatureNewComponent,
+        CustomerComponent
     ],
     imports: [
         CommonModule,

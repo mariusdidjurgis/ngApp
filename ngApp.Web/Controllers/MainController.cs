@@ -20,7 +20,7 @@ namespace ngApp.Web.Controllers
         private readonly IUnitOfWork unitOfWork;
         private readonly IRepository<TEntity> repository;
 
-        public MainController(IUnitOfWork _unitOfWork,  IRepository<TEntity> _repository)
+        public MainController(IUnitOfWork _unitOfWork, IRepository<TEntity> _repository)
         {
             unitOfWork = _unitOfWork;
             repository = _repository;

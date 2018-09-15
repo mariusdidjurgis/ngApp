@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { DialogService } from '../shared/Dialogs/dialog.service';
 import { Observable } from 'rxjs/Observable';
 import { Notification } from 'rxjs/Notification';
@@ -6,6 +6,9 @@ import { Http } from '@angular/http';
 import { ControllerEnum } from '../shared/enums/Controller.enum';
 import { Make } from '../vehicle/make/Make';
 import 'rxjs/add/observable/of';
+import { Customer } from '../shared/Types/customer';
+import { CustomerComponent } from '../shared/Components/customer/customer.component';
+import { UrlEnum } from '../shared/enums/Urls.enum';
 
 @Component({
     selector: 'home',
@@ -17,9 +20,12 @@ export class HomeComponent implements OnInit {
 
     cars: Car[];
     cols: any[];
+    public customer: Customer = new Customer();
+    public test1: string = "aaa";
+    public selectedUrl: UrlEnum;
 
-    constructor(public dlgService: DialogService, private http: Http) {
-
+    constructor(public dlgService: DialogService, private http: Http, private ref: ChangeDetectorRef) {
+        //console.log(this);
     }
 
     test() {

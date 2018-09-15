@@ -5,6 +5,7 @@ import { Subscription, Subject, ReplaySubject, BehaviorSubject } from 'rxjs';
 import { ControllerEnum } from './enums/Controller.enum';
 import { Observable } from 'rxjs/Observable';
 import { Make } from '../vehicle/make/Make';
+import { UrlEnum } from './enums/Urls.enum';
 
 @Injectable()
 export class CommonService {
@@ -32,5 +33,28 @@ export class CommonService {
             return response.json();
         });
     }
-    
+
+    enumToArray() {
+        var arr = [];
+        for (var enumMember in UrlEnum) {
+            var isValueProperty = parseInt(enumMember, 10) >= 0
+            if (isValueProperty) {
+                arr.push({ Key: enumMember, Value: UrlEnum[enumMember] }); //console.log("enum member: ", UrlEnum[enumMember]);
+            }
+        }
+
+        return arr;
+    }
+
+    urlEnumToArray() {
+        var arr = [];
+        for (var enumMember in UrlEnum) {
+            if (enumMember.lastIndexOf("/") == -1) {
+                arr.push({ Key: enumMember, Value: UrlEnum[enumMember] }); //console.log("enum member: ", UrlEnum[enumMember]);
+            }
+        }
+
+        return arr;
+    }
+
 }
