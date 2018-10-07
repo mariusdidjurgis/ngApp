@@ -30,6 +30,9 @@ import { AuthService } from './components/shared/Auth.service';
 import { AuthGuardService } from './components/shared/auth-guard.service';
 import { MakeResolverService } from './components/shared/Resolvers/make-resolver.service';
 import { CommonService } from './components/shared/Common.service';
+import { MyDateDirective } from './components/shared/Directives/MyDateDirective';
+import { MyTimeDirective } from './components/shared/Directives/MyTimeDirective';
+import { DateService } from './components/shared/Date.service';
 
 @NgModule({
     declarations: [
@@ -46,7 +49,9 @@ import { CommonService } from './components/shared/Common.service';
         FeatureEditComponent,
         FeatureViewComponent,
         FeatureNewComponent,
-        CustomerComponent
+        CustomerComponent,
+        MyDateDirective,
+        MyTimeDirective
     ],
     imports: [
         CommonModule,
@@ -80,7 +85,12 @@ import { CommonService } from './components/shared/Common.service';
         AuthService,
         AuthGuardService,
         MakeResolverService,
-        CommonService
+        CommonService,
+        DateService
+    ],
+    exports: [
+        MyDateDirective,
+        MyTimeDirective
     ]
 })
 export class AppModuleShared {
