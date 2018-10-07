@@ -33,6 +33,7 @@ import { CommonService } from './components/shared/Common.service';
 import { MyDateDirective } from './components/shared/Directives/MyDateDirective';
 import { MyTimeDirective } from './components/shared/Directives/MyTimeDirective';
 import { DateService } from './components/shared/Date.service';
+import { CacheService } from 'ng2-cache-service';
 
 @NgModule({
     declarations: [
@@ -86,7 +87,8 @@ import { DateService } from './components/shared/Date.service';
         AuthGuardService,
         MakeResolverService,
         CommonService,
-        DateService
+        DateService,
+        CacheService
     ],
     exports: [
         MyDateDirective,
