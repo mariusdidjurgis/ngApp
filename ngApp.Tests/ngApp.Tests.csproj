@@ -12,4 +12,12 @@
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.5.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="ngAppWeb\Controllers\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ngApp.Web\ngApp.Web.csproj" />
+  </ItemGroup>
+
 </Project>
