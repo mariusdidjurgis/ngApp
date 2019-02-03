@@ -17,18 +17,19 @@ import { CacheService } from 'ng2-cache-service';
     styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit, OnDestroy {
- 
+
     closeResult: string;
 
     cars: Car[];
     cols: any[];
     public customer: Customer = new Customer();
-    public test1: string = "aaa";
     public selectedUrl: UrlEnum;
 
     constructor(public dlgService: DialogService, private http: Http, private ref: ChangeDetectorRef, private cacheService: CacheService) {
         console.log(this);
+        
     }
+
 
     ngOnInit() {
         //this.carService.getCarsSmall().then(cars => this.cars = cars);
@@ -58,16 +59,19 @@ export class HomeComponent implements OnInit, OnDestroy {
         this.cacheService.set('test', data);
 
         this.getobservable().subscribe(r => { console.log('r', r); });
+
+        this.http.get('api/home/test').subscribe(x => { }, x => { });
+
     }
 
-    getobservable(): Observable<any>{
+    getobservable(): Observable<any> {
         var obs = Observable.of({ Id: 1, Name: "aa" });
 
         return obs;
     }
 
 }
-class Car{
+class Car {
     constructor(private vin: string, private year: Date, private brand: string, private color: string) {
 
     }

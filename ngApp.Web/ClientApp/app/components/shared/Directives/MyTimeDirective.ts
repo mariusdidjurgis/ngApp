@@ -15,7 +15,7 @@ export class MyTimeDirective implements OnChanges {
     @Output() dateChange: EventEmitter<any> = new EventEmitter<any>();
 
     constructor(private elem: ElementRef, private dateService: DateService) {
-        console.log('timeDirective ', this);
+
     }
 
     ngOnChanges(changes: SimpleChanges): void {
@@ -30,7 +30,6 @@ export class MyTimeDirective implements OnChanges {
         } else if (this.ngModel && !Date.parse('1970-01-01T' + this.ngModel + 'Z')) {
             this.appendWarningElement("invalid time");
         }
-
     }
 
     private appendWarningElement(text: string) {
@@ -39,6 +38,4 @@ export class MyTimeDirective implements OnChanges {
         elem.innerText = text;
         this.elem.nativeElement.parentElement.append(elem);
     }
-
-
 }

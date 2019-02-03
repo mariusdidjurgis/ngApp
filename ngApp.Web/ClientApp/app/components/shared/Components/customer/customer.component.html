@@ -16,14 +16,17 @@
         <input type="text" [(ngModel)]="customer.Time" MyTime [date]="customer.Date" name="Time" class="form-control" id="Time" placeholder="Time">
     </div>
     <div class="form-group">
-        <label for="test1">test1</label>
-        <input type="text" [(ngModel)]="test1" (ngModelChange)="test1Change.emit($event)" name="test1" class="form-control" id="test1" placeholder="test1">
-    </div>
-    <div class="form-group">
         <label for="selectedUrl">UrlEnum</label>
         <select [(ngModel)]="selectedUrl" (ngModelChange)="selectedUrlChange.emit($event)" name="selectedUrl">
             <option *ngFor="let url of urlsArray" [value]="url.Key">Key: {{url.Key}} Value: {{url.Value}}</option>
         </select>
-
     </div>
+    <div class="form-group" *ngFor="let tpl of templateData">
+        <label for="tpl.Label">{{tpl.Label}}</label>
+        <select [(ngModel)]="tpl.Value" [name]="tpl.Label" class="form-control" id="{{tpl.Label}}">
+            <option *ngFor="let opt of tpl.Options" [ngValue]="opt.Code">{{opt.Name}}</option>
+        </select>
+    </div>
+    <button type="button" class="btn btn-dark" (click)="save()">save</button>
+    <button type="button" class="btn btn-dark" (click)="edit()">edit</button>
 </form>

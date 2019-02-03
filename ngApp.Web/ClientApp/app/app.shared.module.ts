@@ -52,7 +52,7 @@ import { CacheService } from 'ng2-cache-service';
         FeatureNewComponent,
         CustomerComponent,
         MyDateDirective,
-        MyTimeDirective
+        MyTimeDirective,
     ],
     imports: [
         CommonModule,
@@ -92,7 +92,7 @@ import { CacheService } from 'ng2-cache-service';
     ],
     exports: [
         MyDateDirective,
-        MyTimeDirective
+        MyTimeDirective,
     ]
 })
 export class AppModuleShared {

@@ -14,8 +14,8 @@ export class MyDateDirective implements OnChanges {
     @Input() time: string;
     @Output() timeChange: EventEmitter<any> = new EventEmitter<any>();
 
-    constructor(private elem: ElementRef, private dateService: DateService) {        
-        console.log('dateDirective ', this);
+    constructor(private elem: ElementRef, private dateService: DateService) {
+
     }
 
     ngOnChanges(changes: SimpleChanges): void {

@@ -4,7 +4,7 @@
 <p>Primeng calendar: <p-calendar [(ngModel)]="value"></p-calendar> </p>
 <button type="button" (click)="test(content)">test</button>
 <div class="col-lg-12">
-    <customer *ngIf="showCustomer" [customer]="customer" [(test1)]="test1" [(selectedUrl)]="selectedUrl"></customer>
+    <customer *ngIf="!showCustomer" [(customer)]="customer" [(selectedUrl)]="selectedUrl"></customer>
     <!-- to create two way biding, not only need to emit new value in child, but also add bananas like attribute here-->
     <button type="button" class="btn btn-danger" (click)="showCustomer = !showCustomer">toggle customer</button>
 </div>
